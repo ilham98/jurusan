@@ -72821,7 +72821,7 @@ function InputSelect(props) {
   var error = props.error,
       width = props.width;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({}, props, {
-    className: "px-3 py-2 shadow border rounded inline text-gray-700 leading-tight focus:outline-none focus:shadow-outline ".concat(error && 'border-red-500', " w-").concat(width)
+    className: "px-3 py-2 shadow border rounded inline text-gray-700 leading-tight focus:outline-none bg-white focus:shadow-outline ".concat(error && 'border-red-500', " w-").concat(width)
   }), props.children);
 }
 
@@ -74541,9 +74541,7 @@ function Jadwal() {
     className: "p-3 mt-20 lg:p-10"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex flex-wrap"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    flex: 1
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_4__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
     value: tahun,
     onChange: function onChange(e) {
       setTahun(parseInt(e.target.value));
@@ -74557,9 +74555,7 @@ function Jadwal() {
     value: 2018
   }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: 2019
-  }, "2019"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    flex: 1
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, "2019"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_4__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
     value: semester,
     onChange: function onChange(e) {
       return setSemester(parseInt(e.target.value));

@@ -87,7 +87,7 @@ function Jadwal() {
 			<Navbar />
 			<div className="p-3 mt-20 lg:p-10">
 				<div className='flex flex-wrap'>
-					<FormGroup flex={1}>
+					<FormGroup>
 						<InputSelect value={ tahun } onChange={ e => { 
 							setTahun(parseInt(e.target.value)); console.log('aaa'); 
 						} }>
@@ -97,7 +97,7 @@ function Jadwal() {
 							<option value={2019}>2019</option>
 						</InputSelect>
 					</FormGroup>
-					<FormGroup flex={1}>
+					<FormGroup>
 						<InputSelect value={ semester } onChange={ e => setSemester(parseInt(e.target.value)) }>
 							<option value={1}>Ganjil</option>
 							<option value={2}>Genap</option>
