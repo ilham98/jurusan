@@ -1,0 +1,28 @@
+{
+  'root': true,
+  'parser': 'babel-eslint',
+  'parserOptions': {
+    'sourceType': 'module',
+  },
+  'plugins': [
+    'react',
+  ],
+  'env': {
+    'browser': true,
+    'es6': true,
+  },
+  'extends': [
+    // Load default configuration for react
+    'plugin:react/recommended',
+    // If you were to extend another popular 
+    // eslint config, you'd put it here
+  ],
+  // add your custom rules here
+  'rules': {
+    // allow debugger during development
+    // Default no-unused-vars
+    'no-unused-vars': 1,
+    // jsx version of no-unused-vars
+    'react/jsx-uses-vars': 1,
+  }
+}
