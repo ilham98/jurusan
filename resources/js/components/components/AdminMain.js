@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '@/contexts/auth-context';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -12,10 +12,13 @@ let Item = ({ name, to, location, icon }) => {
 Item = withRouter(Item);
 
 function AdminMain(props) {
+
+	const [open, setOpen] = useState(false);
+
 	const { signout } = useContext(AuthContext);
 	return (
 		<div className='flex'>
-			<div className='bg-white h-screen'>
+			<div className='bg-white hidden md:block h-screen fixed md:static flex-1 w-full' style={{ minWidth: 250 }}>
 				<div className='my-5 mx-10'>
 					Welcome Admin
 				</div>
@@ -26,10 +29,13 @@ function AdminMain(props) {
 					<button onClick={ () => signout() }>Logout</button>
 				</div>
 			</div>
-			<div className='flex-1 p-5 bg-gray-300 shadow-lg agenda shadow-lg'>
-				<div className='text-2xl p-10 bg-blue-500 text-white'>{ props.title }</div>
-				<div className='bg-white px-10 py-10' style={{ maxHeight: '75vh', overflowY: 'scroll' }}>
-					{ props.children }
+			<div className='flex-4'>
+				<div><button><i className='p-3 fas fa-bars' /></button></div>
+				<div className='p-5 bg-gray-300 shadow-lg agenda shadow-lg'>
+					<div className='text-2xl p-10 bg-blue-500 text-white'>{ props.title }</div>
+					<div className='bg-white px-10 py-10' style={{ maxHeight: '75vh', overflowY: 'scroll' }}>
+						{ props.children }
+					</div>
 				</div>
 			</div>
 		</div>

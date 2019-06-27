@@ -72235,6 +72235,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _contexts_auth_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/contexts/auth-context */ "./resources/js/components/contexts/auth-context.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -72256,13 +72264,21 @@ var Item = function Item(_ref) {
 Item = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Item);
 
 function AdminMain(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      open = _useState2[0],
+      setOpen = _useState2[1];
+
   var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_1__["AuthContext"]),
       signout = _useContext.signout;
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "bg-white h-screen"
+    className: "bg-white hidden md:block h-screen fixed md:static flex-1 w-full",
+    style: {
+      minWidth: 250
+    }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "my-5 mx-10"
   }, "Welcome Admin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -72284,7 +72300,11 @@ function AdminMain(props) {
       return signout();
     }
   }, "Logout"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex-1 p-5 bg-gray-300 shadow-lg agenda shadow-lg"
+    className: "flex-4"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "p-3 fas fa-bars"
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "p-5 bg-gray-300 shadow-lg agenda shadow-lg"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "text-2xl p-10 bg-blue-500 text-white"
   }, props.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -72293,7 +72313,7 @@ function AdminMain(props) {
       maxHeight: '75vh',
       overflowY: 'scroll'
     }
-  }, props.children)));
+  }, props.children))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (AdminMain);
