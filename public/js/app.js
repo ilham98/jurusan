@@ -73989,7 +73989,7 @@ function SelectedJadwal(_ref) {
       deleteClickHandler = _ref.deleteClickHandler;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex flex-wrap"
-  }, loopHari(selectedJadwal, deleteClickHandler));
+  }, "mantap", loopHari(selectedJadwal, deleteClickHandler));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SelectedJadwal);

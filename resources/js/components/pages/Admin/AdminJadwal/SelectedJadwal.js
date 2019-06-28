@@ -27,6 +27,7 @@ function loopHari(hari, deleteClickHandler) {
 function SelectedJadwal({ selectedJadwal, deleteClickHandler }) {
 	return (
 		<div className='flex flex-wrap'>
+		mantap
 			{
 				loopHari(selectedJadwal, deleteClickHandler)
 			}
