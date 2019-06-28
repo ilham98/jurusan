@@ -72649,9 +72649,9 @@ function Modal(props) {
     }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     onClick: props.handleOpen,
-    className: "rounded border-blue-500 border-b-4 bg-white animated fadeInUp faster overflow-auto w-2/3 sm:w-3/5 md:w-2/5",
+    className: "rounded border-blue-500 border-b-4 bg-white animated fadeInUp faster overflow-auto",
     style: {
-      maxHeight: '75%'
+      minWidth: 300
     }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "py-3 px-10 text-center bg-blue-500 text-white shadow font-bold"
@@ -73764,6 +73764,29 @@ function AdminDashboard() {
     }
   }
 
+  function tambahDosenPengajarClickHandler() {
+    var checkDosen = selectedDosen.find(function (d) {
+      return d.nidn === dosenId;
+    });
+
+    if (!checkDosen) {
+      var d = selectedDosen;
+      d.push(dosen.find(function (d) {
+        return d.nidn === dosenId;
+      }));
+      setSelectedDosen(d);
+      setForm(function (f) {
+        var dosenIds = f.dosenIds;
+        return _objectSpread({}, f, {
+          dosenIds: [].concat(_toConsumableArray(dosenIds), [dosenId])
+        });
+      });
+      setOpen2(false);
+    } else {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_13___default.a.fire('Error!', 'Dosen yang sama telah ditambahkan sebelumnya!', 'error');
+    }
+  }
+
   function submitHandler(e) {
     e.preventDefault();
     axios__WEBPACK_IMPORTED_MODULE_9___default.a.post("".concat(_config__WEBPACK_IMPORTED_MODULE_10__["BASE_API_URL"], "/jadwal"), form, {
@@ -73788,27 +73811,11 @@ function AdminDashboard() {
     });
   }
 
-  function tambahDosenPengajarClickHandler() {
-    var checkDosen = selectedDosen.find(function (d) {
-      return d.nidn === dosenId;
+  function deleteClickHandler(id) {
+    axios__WEBPACK_IMPORTED_MODULE_9___default.a["delete"]("".concat(_config__WEBPACK_IMPORTED_MODULE_10__["BASE_API_URL"], "/jadwal/").concat(id)).then(function () {
+      refetch();
+      sweetalert2__WEBPACK_IMPORTED_MODULE_13___default.a.fire('Berhasil!', 'Jadwal berhasil dihapus', 'success');
     });
-
-    if (!checkDosen) {
-      var d = selectedDosen;
-      d.push(dosen.find(function (d) {
-        return d.nidn === dosenId;
-      }));
-      setSelectedDosen(d);
-      setForm(function (f) {
-        var dosenIds = f.dosenIds;
-        return _objectSpread({}, f, {
-          dosenIds: [].concat(_toConsumableArray(dosenIds), [dosenId])
-        });
-      });
-      setOpen2(false);
-    } else {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_13___default.a.fire('Error!', 'Dosen yang sama telah ditambahkan sebelumnya!', 'error');
-    }
   }
 
   function handleOpen() {
@@ -73882,6 +73889,7 @@ function AdminDashboard() {
   })))), loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Loading__WEBPACK_IMPORTED_MODULE_3__["default"], null) : tahun === "" || semester === "" || namaKelas === "" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "h-64 flex items-center justify-center"
   }, "Silahkan Pilih Tahun, Semester, Dan Nama Kelas Lebih dulu") : Object.keys(getSelectedJadwal()).length ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SelectedJadwal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    deleteClickHandler: deleteClickHandler,
     selectedJadwal: getSelectedJadwal()
   }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "h-64 flex items-center justify-center"
@@ -73944,7 +73952,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
-function loopWaktu(waktu) {
+function loopWaktu(waktu, deleteClickHandler) {
   return Object.keys(waktu).map(function (key, index) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: key,
@@ -73954,11 +73962,16 @@ function loopWaktu(waktu) {
       }
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "whitespace-no-wrap text-sm text-center"
-    }, key), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, waktu[key].mata_kuliah.nama));
+    }, key, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fa fa-trash text-red-600",
+      onClick: function onClick() {
+        return deleteClickHandler(waktu[key]['jadwal_id']);
+      }
+    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, waktu[key].mata_kuliah.nama));
   });
 }
 
-function loopHari(hari) {
+function loopHari(hari, deleteClickHandler) {
   return Object.keys(hari).map(function (key, index) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: key,
@@ -73967,15 +73980,16 @@ function loopHari(hari) {
       className: "rounded-lg p-5 border-b-2 border-blue-500 font-bold text-center text-blue-500"
     }, key), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "text-center text-sm"
-    }, loopWaktu(hari[key])));
+    }, loopWaktu(hari[key], deleteClickHandler)));
   });
 }
 
 function SelectedJadwal(_ref) {
-  var selectedJadwal = _ref.selectedJadwal;
+  var selectedJadwal = _ref.selectedJadwal,
+      deleteClickHandler = _ref.deleteClickHandler;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex flex-wrap"
-  }, loopHari(selectedJadwal));
+  }, loopHari(selectedJadwal, deleteClickHandler));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SelectedJadwal);
@@ -74523,7 +74537,7 @@ function Jadwal() {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "text-white inline-block px-3 py-1 rounded ".concat(semester === 1 ? 'bg-blue-600' : 'bg-orange-500', " mx-2 ")
       }, key)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "flex flex-wrap"
+        className: "block w-full sm:flex flex-wrap"
       }, loopHari(kelas[key], semester))));
     });
   }
@@ -74536,7 +74550,7 @@ function Jadwal() {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "text-lg my-5 font-bold text-gray-800"
         }, " Semester ", semester === 1 ? 'Ganjil' : 'Genap'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: ""
+          className: "w-full"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Kelas, {
           kelas: jadwal[semester][kodeProdi],
           semester: semester

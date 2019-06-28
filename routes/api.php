@@ -35,6 +35,7 @@ Route::group(['prefix' => 'v1'], function () {
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:admin'], function () {
 	Route::post('jadwal', 'API\JadwalController@store');
+    Route::delete('jadwal/{id}', 'API\JadwalController@destroy');
 });
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:dosen'], function () {

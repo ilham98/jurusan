@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Jadwal;
 use App\Kelas;
 use App\Hari;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +17,13 @@ class JadwalController extends Controller {
     		'tahun' => 'required'
     	]);
 
- 		$jadwal = Jadwal::with('kelas.prodi', 'mata_kuliah', 'dosen', 'waktu.hari')->get();
+ 		$jadwal = Jadwal::select('*', DB::raw('jadwal.id as jadwal_id'))
+                    ->with('kelas.prodi', 'mata_kuliah', 'dosen', 'waktu.hari')
+                    ->join('waktu', 'jadwal.waktu_id', '=', 'waktu.id')
+                    ->join('hari', 'waktu.hari_id', '=', 'hari.id')
+                    ->orderBy('hari.id')
+                    ->orderBy('waktu.mulai')
+                    ->get();
         $jadwal = $jadwal->groupBy([
         	function($j) {
 	        	if($j->semester == 1 || $j->semester == 2)
@@ -106,4 +113,10 @@ class JadwalController extends Controller {
     	return $jadwal;
     }
     
+    public function destroy($id) {
+        $jadwal = Jadwal::find($id);
+        $jadwal->delete();
+
+        return $jadwal;
+    }
 }

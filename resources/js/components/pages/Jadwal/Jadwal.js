@@ -50,7 +50,7 @@ function Jadwal() {
 	}
 
 	function Kelas({kelas, semester}) {
-		const [show, setShow] = useState(false);
+		const [show, setShow] = useState(false);	
 		return Object.keys(kelas).map(function(key, index) {
 			return (
 				<div key={ key }>
@@ -58,7 +58,7 @@ function Jadwal() {
 						<div className="font-bold text-white">
 							<div className={`text-white inline-block px-3 py-1 rounded ${ semester === 1 ?  'bg-blue-600' :  'bg-orange-500'  } mx-2 `}>{ key }</div>
 						</div>
-						<div className="flex flex-wrap">{ loopHari(kelas[key], semester) }</div>
+						<div className="block w-full sm:flex flex-wrap">{ loopHari(kelas[key], semester) }</div>
 					</div>
 				</div>
 			);
@@ -71,7 +71,7 @@ function Jadwal() {
 					return (
 							<div className="mt-5 rounded animated fadeIn faster flex flex-col justify-start items-start p-5 lg:p-10 bg-gray-100 shadow-lg">
 								<div className="text-lg my-5 font-bold text-gray-800"> Semester { semester === 1 ? 'Ganjil' : 'Genap'}</div>
-								<div className="">
+								<div className="w-full">
 									<Kelas kelas={jadwal[semester][kodeProdi]} semester={semester}/>
 								</div>
 							</div>

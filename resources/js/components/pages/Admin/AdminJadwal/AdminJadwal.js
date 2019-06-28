@@ -124,6 +124,25 @@ function AdminDashboard() {
 		}
 	}
 
+	function tambahDosenPengajarClickHandler() {
+		const checkDosen = selectedDosen.find(d => d.nidn === dosenId);
+		if(!checkDosen) {
+			const d = selectedDosen;
+			d.push(dosen.find(d => d.nidn === dosenId));
+			setSelectedDosen(d);
+			setForm(f => {
+				const dosenIds = f.dosenIds;
+				return { ...f, dosenIds: [...dosenIds, dosenId] }
+			});
+			setOpen2(false);
+		} else {
+			Swal.fire(
+			  'Error!',
+			  'Dosen yang sama telah ditambahkan sebelumnya!',
+			  'error'
+			);
+		}
+	}
 
 	function submitHandler(e) {
 		e.preventDefault();
@@ -151,24 +170,16 @@ function AdminDashboard() {
 			})
 	}
 
-	function tambahDosenPengajarClickHandler() {
-		const checkDosen = selectedDosen.find(d => d.nidn === dosenId);
-		if(!checkDosen) {
-			const d = selectedDosen;
-			d.push(dosen.find(d => d.nidn === dosenId));
-			setSelectedDosen(d);
-			setForm(f => {
-				const dosenIds = f.dosenIds;
-				return { ...f, dosenIds: [...dosenIds, dosenId] }
-			});
-			setOpen2(false);
-		} else {
-			Swal.fire(
-			  'Error!',
-			  'Dosen yang sama telah ditambahkan sebelumnya!',
-			  'error'
-			);
-		}
+	function deleteClickHandler(id) {
+		axios.delete(`${BASE_API_URL}/jadwal/${id}`)
+			.then(() => {
+				refetch();
+				Swal.fire(
+				  'Berhasil!',
+				  'Jadwal berhasil dihapus',
+				  'success'
+				);
+			})
 	}
 
 	function handleOpen() {
@@ -251,7 +262,10 @@ function AdminDashboard() {
 						tahun === "" || semester === "" || namaKelas === "" ? 
 							<div className='h-64 flex items-center justify-center'>Silahkan Pilih Tahun, Semester, Dan Nama Kelas Lebih dulu</div> : (
 								Object.keys(getSelectedJadwal()).length ? 
-								<SelectedJadwal selectedJadwal={ getSelectedJadwal() }/> :
+								<SelectedJadwal 
+									deleteClickHandler={ deleteClickHandler } 
+									selectedJadwal={ getSelectedJadwal() }
+								/> :
 								<div className='h-64 flex items-center justify-center'>Tidak ditemukan jadwal</div>
 							)
 					)
