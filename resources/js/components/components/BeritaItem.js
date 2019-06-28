@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
 function Berita({ judul,isi }) { 
     return  (
@@ -23,5 +24,10 @@ function Berita({ judul,isi }) {
             </div>
         );
 };
+
+Berita.propTypes = {
+    judul: PropTypes.string,
+    isi: PropTypes.string
+}
 
 export default Berita;

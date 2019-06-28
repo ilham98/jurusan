@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function InputSelect(props) {
 	const { error, width } = props;
@@ -8,5 +9,11 @@ function InputSelect(props) {
 		</select>
 	)
 };
+
+InputSelect.propTypes = {
+	error: PropTypes.string,
+	width: PropTypes.string,
+	children: PropTypes.array
+}
 
 export default InputSelect;

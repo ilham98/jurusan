@@ -1,7 +1,6 @@
 import React from 'react';
 import BeritaItem from '@/components/BeritaItem';
 import useAxios from '@/hooks/useAxios';
-import ErrorBoundary from '@/components/ErrorBoundary';
 import FetchedData from '@/components/FetchedData';
 
 function BeritaTerbaru() {

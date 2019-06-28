@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function AgendaItem({ judul, tanggal }) {
     return (
@@ -7,6 +8,11 @@ function AgendaItem({ judul, tanggal }) {
             <div className='text-sm'>{ tanggal }</div>
         </div>
     );
+}
+
+AgendaItem.propTypes = {
+    judul: PropTypes.string,
+    tanggal: PropTypes.string
 }
 
 function Agenda() {

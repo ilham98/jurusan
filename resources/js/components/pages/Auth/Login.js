@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import FormGroup from '@/components/forms/FormGroup';
 import InputText from '@/components/forms/InputText';
+import PropTypes from 'prop-types'
 
 function Login(props) {
 	const [ nidn, setNidn ] = useState('');
@@ -56,6 +57,10 @@ function Login(props) {
 			</div>
 		</div>
 	);
+}
+
+Login.propTypes = {
+	history: PropTypes.object 
 }
 
 export default withRouter(Login);

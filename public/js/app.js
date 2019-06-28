@@ -72235,6 +72235,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _contexts_auth_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/contexts/auth-context */ "./resources/js/components/contexts/auth-context.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -72242,6 +72244,7 @@ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructur
 function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -72261,6 +72264,12 @@ var Item = function Item(_ref) {
   }));
 };
 
+Item.propTypes = {
+  name: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+  to: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+  location: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string
+};
 Item = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Item);
 
 function AdminMain(props) {
@@ -72300,9 +72309,12 @@ function AdminMain(props) {
       return signout();
     }
   }, "Logout"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex-4"
+    className: "flex-4 ".concat(open && 'mantap')
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    className: "p-3 fas fa-bars"
+    className: "p-3 fas fa-bars",
+    onClick: function onClick() {
+      return setOpen(true);
+    }
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "p-5 bg-gray-300 shadow-lg agenda shadow-lg"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -72316,6 +72328,10 @@ function AdminMain(props) {
   }, props.children))));
 }
 
+AdminMain.propTypes = {
+  title: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.array
+};
 /* harmony default export */ __webpack_exports__["default"] = (AdminMain);
 
 /***/ }),
@@ -72332,6 +72348,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -72361,6 +72380,10 @@ function Berita(_ref) {
 }
 
 ;
+Berita.propTypes = {
+  judul: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
+  isi: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string
+};
 /* harmony default export */ __webpack_exports__["default"] = (Berita);
 
 /***/ }),
@@ -72376,7 +72399,10 @@ function Berita(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 
 
 
@@ -72410,6 +72436,10 @@ function Button(props) {
 }
 
 ;
+Button.propTypes = {
+  color: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  text: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+};
 /* harmony default export */ __webpack_exports__["default"] = (Button);
 
 /***/ }),
@@ -72427,6 +72457,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _contexts_auth_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/contexts/auth-context */ "./resources/js/components/contexts/auth-context.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -72445,6 +72478,12 @@ var Item = function Item(_ref) {
   }));
 };
 
+Item.propTypes = {
+  name: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+  to: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+  location: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string
+};
 Item = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Item);
 
 function DosenMain(props) {
@@ -72480,80 +72519,11 @@ function DosenMain(props) {
   }, props.children)));
 }
 
+DosenMain.propTypes = {
+  title: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.array
+};
 /* harmony default export */ __webpack_exports__["default"] = (DosenMain);
-
-/***/ }),
-
-/***/ "./resources/js/components/components/ErrorBoundary.js":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/components/ErrorBoundary.js ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-var ErrorBoundary =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(ErrorBoundary, _Component);
-
-  function ErrorBoundary(props) {
-    var _this;
-
-    _classCallCheck(this, ErrorBoundary);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(ErrorBoundary).call(this, props));
-    _this.state = {
-      hasError: false
-    };
-    return _this;
-  }
-
-  _createClass(ErrorBoundary, [{
-    key: "componentDidCatch",
-    value: function componentDidCatch(error, info) {
-      this.setState({
-        hasError: true
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      if (this.state.hasError) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Something Went Wrong");
-      }
-
-      return this.props.children;
-    }
-  }]);
-
-  return ErrorBoundary;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-/* harmony default export */ __webpack_exports__["default"] = (ErrorBoundary);
 
 /***/ }),
 
@@ -72569,6 +72539,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/Loading */ "./resources/js/components/components/Loading.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -72579,6 +72552,11 @@ function FetchedData(props) {
   return loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Loading__WEBPACK_IMPORTED_MODULE_1__["default"], null) : error ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Something Went Wrong :(") : children;
 }
 
+FetchedData.propTypes = {
+  loading: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
+  error: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
+  children: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array
+};
 /* harmony default export */ __webpack_exports__["default"] = (FetchedData);
 
 /***/ }),
@@ -72678,6 +72656,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_img_logo_webp__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_assets_img_logo_webp__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -72685,6 +72665,7 @@ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructur
 function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -72705,9 +72686,15 @@ var Item = function Item(_ref) {
   }, text));
 };
 
+Item.propTypes = {
+  location: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+  path: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+  text: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+  handleClose: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func
+};
 Item = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["withRouter"])(Item);
 
-function Navbar(props) {
+function Navbar() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])('white'),
       _useState2 = _slicedToArray(_useState, 2),
       color = _useState2[0],
@@ -72725,10 +72712,6 @@ function Navbar(props) {
       setColor('white');
     }
   };
-
-  function handleClose() {
-    setOpen(false);
-  }
 
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
     window.addEventListener('scroll', handleScroll);
@@ -72804,6 +72787,9 @@ function Navbar(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 function FormGroup(props) {
@@ -72818,6 +72804,11 @@ function FormGroup(props) {
   }, props.children);
 }
 
+FormGroup.propTypes = {
+  flex: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  align: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object
+};
 /* harmony default export */ __webpack_exports__["default"] = (FormGroup);
 
 /***/ }),
@@ -72833,7 +72824,10 @@ function FormGroup(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 
 
 
@@ -72846,6 +72840,11 @@ function InputSelect(props) {
 }
 
 ;
+InputSelect.propTypes = {
+  error: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  width: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.array
+};
 /* harmony default export */ __webpack_exports__["default"] = (InputSelect);
 
 /***/ }),
@@ -72916,6 +72915,100 @@ var AuthContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])();
 
 /***/ }),
 
+/***/ "./resources/js/components/forms/AdminJadwalFilterForm.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/forms/AdminJadwalFilterForm.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/forms/FormGroup */ "./resources/js/components/components/forms/FormGroup.js");
+/* harmony import */ var _components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/forms/InputSelect */ "./resources/js/components/components/forms/InputSelect.js");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/Button */ "./resources/js/components/components/Button.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+
+function AdminJadwalFilterForm(props) {
+  var semester = props.semester,
+      tahun = props.tahun,
+      form = props.form,
+      kelas = props.kelas,
+      namaKelas = props.namaKelas;
+  var openJadwalModalHandler = props.openJadwalModalHandler,
+      tahunChangeHandler = props.tahunChangeHandler,
+      submitHandler = props.submitHandler,
+      semesterChangeHandler = props.semesterChangeHandler,
+      kelasChangeHandler = props.kelasChangeHandler;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    onSubmit: submitHandler
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    name: "tahun",
+    onChange: tahunChangeHandler
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: ""
+  }, "Pilih Tahun"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 2016
+  }, "2016"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 2017
+  }, "2017"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 2018
+  }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 2019
+  }, "2019"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: semester,
+    onChange: semesterChangeHandler
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: ""
+  }, "Pilih Semester"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 1
+  }, "Ganjil"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 2
+  }, "Genap"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    name: "kelas_id",
+    value: form.kelas_id,
+    onChange: kelasChangeHandler
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: ""
+  }, "Pilih Kelas"), kelas.map(function (k) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: k.kelas_id,
+      value: k.kelas_id
+    }, k.nama);
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    type: "button",
+    onClick: openJadwalModalHandler,
+    text: "Tambah Jadwal",
+    disabled: tahun === "" || semester === "" || namaKelas === ""
+  }))));
+}
+
+AdminJadwalFilterForm.propTypes = {
+  semester: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number,
+  tahun: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number,
+  form: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+  kelas: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array,
+  namaKelas: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+  openJadwalModalHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+  tahunChangeHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+  submitHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+  semesterChangeHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+  kelasChangeHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func
+};
+/* harmony default export */ __webpack_exports__["default"] = (AdminJadwalFilterForm);
+
+/***/ }),
+
 /***/ "./resources/js/components/forms/BeritaForm.js":
 /*!*****************************************************!*\
   !*** ./resources/js/components/forms/BeritaForm.js ***!
@@ -72933,6 +73026,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/forms/FormGroup */ "./resources/js/components/components/forms/FormGroup.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -72944,6 +73039,7 @@ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructur
 function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -73014,6 +73110,9 @@ function BeritaForm(props) {
   })));
 }
 
+BeritaForm.propTypes = {
+  closeModal: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.func
+};
 /* harmony default export */ __webpack_exports__["default"] = (BeritaForm);
 
 /***/ }),
@@ -73032,17 +73131,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/forms/FormGroup */ "./resources/js/components/components/forms/FormGroup.js");
 /* harmony import */ var _components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/forms/InputSelect */ "./resources/js/components/components/forms/InputSelect.js");
 /* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/Button */ "./resources/js/components/components/Button.js");
-/* harmony import */ var _components_Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/Modal */ "./resources/js/components/components/Modal.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
@@ -73050,9 +73140,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function JadwalForm(props) {
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    console.log('dosen_change');
-  }, [props.selectedDosen]);
   var hari = props.hari,
       mata_kuliah = props.mata_kuliah,
       ruangan = props.ruangan,
@@ -73062,12 +73149,9 @@ function JadwalForm(props) {
   var changeHandler = props.changeHandler,
       submitHandler = props.submitHandler,
       teacherModalHandleOpen = props.teacherModalHandleOpen;
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
-      _useState2 = _slicedToArray(_useState, 2),
-      open = _useState2[0],
-      setOpen = _useState2[1];
-
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    console.log('dosen_change');
+  }, [props.selectedDosen]);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onSubmit: submitHandler
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -73124,10 +73208,10 @@ function JadwalForm(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "font-bold"
   }, "Daftar Dosen Pengajar"), selectedDosen && selectedDosen.length === 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "---Dosen Pengajar Belum Ditambahkan---") : selectedDosen.map(function (s, key) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: s.nidn,
       className: "mt-2"
-    }, "key", s.nidn), key + 1, ". ", s.nama);
+    }, key + 1, ". ", s.nama);
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -73143,6 +73227,17 @@ function JadwalForm(props) {
   }))));
 }
 
+JadwalForm.propTypes = {
+  hari: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array,
+  mata_kuliah: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array,
+  ruangan: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array,
+  form: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+  selectedDosen: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array,
+  errors: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+  changeHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+  submitHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+  teacherModalHandleOpen: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func
+};
 /* harmony default export */ __webpack_exports__["default"] = (JadwalForm);
 
 /***/ }),
@@ -73180,21 +73275,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _contexts_auth_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/contexts/auth-context */ "./resources/js/components/contexts/auth-context.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-
 
 
 
 
 function withAuth(Component, _role) {
-  function _Component(props) {
-    var initialMount = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(true);
-
+  function _Component() {
     var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_1__["AuthContext"]),
         authenticated = _useContext.authenticated,
-        role = _useContext.role,
-        signin = _useContext.signin;
+        role = _useContext.role;
 
     if (!authenticated) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
@@ -73205,7 +73294,7 @@ function withAuth(Component, _role) {
     if (role !== _role) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
       to: "/"
     });
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_1__["AuthContext"].Consumer, null, function (value) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_1__["AuthContext"].Consumer, null, function () {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, null);
     });
   }
@@ -73230,7 +73319,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/config */ "./resources/js/components/config.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -73242,20 +73330,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 function useAxios(_ref) {
   var url = _ref.url,
       method = _ref.method,
       _ref$body = _ref.body,
-      body = _ref$body === void 0 ? {} : _ref$body,
-      _ref$onSuccess = _ref.onSuccess,
-      onSuccess = _ref$onSuccess === void 0 ? function () {
-    return console.log('success');
-  } : _ref$onSuccess,
-      _ref$onFail = _ref.onFail,
-      onFail = _ref$onFail === void 0 ? function () {
-    return console.log('failed');
-  } : _ref$onFail;
+      body = _ref$body === void 0 ? {} : _ref$body;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true),
       _useState2 = _slicedToArray(_useState, 2),
@@ -73488,17 +73567,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks_useAxios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/hooks/useAxios */ "./resources/js/components/hooks/useAxios.js");
 /* harmony import */ var _components_Loading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/Loading */ "./resources/js/components/components/Loading.js");
 /* harmony import */ var _components_Modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/Modal */ "./resources/js/components/components/Modal.js");
-/* harmony import */ var _SelectedJadwal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SelectedJadwal */ "./resources/js/components/pages/Admin/AdminJadwal/SelectedJadwal.js");
-/* harmony import */ var _components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/forms/FormGroup */ "./resources/js/components/components/forms/FormGroup.js");
-/* harmony import */ var _components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/forms/InputSelect */ "./resources/js/components/components/forms/InputSelect.js");
-/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/components/Button */ "./resources/js/components/components/Button.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/config */ "./resources/js/components/config.js");
-/* harmony import */ var _contexts_auth_context__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @/contexts/auth-context */ "./resources/js/components/contexts/auth-context.js");
-/* harmony import */ var _forms_JadwalForm__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/forms/JadwalForm */ "./resources/js/components/forms/JadwalForm.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _components_DosenDetail__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/DosenDetail */ "./resources/js/components/pages/Admin/AdminJadwal/components/DosenDetail.js");
+/* harmony import */ var _components_SelectedJadwal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/SelectedJadwal */ "./resources/js/components/pages/Admin/AdminJadwal/components/SelectedJadwal.js");
+/* harmony import */ var _components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/forms/FormGroup */ "./resources/js/components/components/forms/FormGroup.js");
+/* harmony import */ var _components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/components/forms/InputSelect */ "./resources/js/components/components/forms/InputSelect.js");
+/* harmony import */ var _forms_AdminJadwalFilterForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/forms/AdminJadwalFilterForm */ "./resources/js/components/forms/AdminJadwalFilterForm.js");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/components/Button */ "./resources/js/components/components/Button.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @/config */ "./resources/js/components/config.js");
+/* harmony import */ var _contexts_auth_context__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @/contexts/auth-context */ "./resources/js/components/contexts/auth-context.js");
+/* harmony import */ var _forms_JadwalForm__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @/forms/JadwalForm */ "./resources/js/components/forms/JadwalForm.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_15__);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -73518,6 +73599,8 @@ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructur
 function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -73591,47 +73674,42 @@ function AdminDashboard() {
       kelas = _useState8[0],
       setKelas = _useState8[1];
 
-  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState10 = _slicedToArray(_useState9, 2),
-      selectedJadwal = _useState10[0],
-      setSelectedJadwal = _useState10[1];
+      dosenId = _useState10[0],
+      setDosenId = _useState10[1];
 
-  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState12 = _slicedToArray(_useState11, 2),
-      dosenId = _useState12[0],
-      setDosenId = _useState12[1];
+      selectedDosen = _useState12[0],
+      setSelectedDosen = _useState12[1];
 
-  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState14 = _slicedToArray(_useState13, 2),
-      selectedDosen = _useState14[0],
-      setSelectedDosen = _useState14[1];
+      namaKelas = _useState14[0],
+      setNamaKelas = _useState14[1];
 
   var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState16 = _slicedToArray(_useState15, 2),
-      namaKelas = _useState16[0],
-      setNamaKelas = _useState16[1];
+      kodeProdi = _useState16[0],
+      setKodeProdi = _useState16[1];
 
-  var _useState17 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+  var _useState17 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState18 = _slicedToArray(_useState17, 2),
-      kodeProdi = _useState18[0],
-      setKodeProdi = _useState18[1];
+      open = _useState18[0],
+      setOpen = _useState18[1];
 
   var _useState19 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState20 = _slicedToArray(_useState19, 2),
-      open = _useState20[0],
-      setOpen = _useState20[1];
+      open2 = _useState20[0],
+      setOpen2 = _useState20[1];
 
-  var _useState21 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+  var _useState21 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
       _useState22 = _slicedToArray(_useState21, 2),
-      open2 = _useState22[0],
-      setOpen2 = _useState22[1];
+      errors = _useState22[0],
+      setErrors = _useState22[1];
 
-  var _useState23 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
-      _useState24 = _slicedToArray(_useState23, 2),
-      errors = _useState24[0],
-      setErrors = _useState24[1];
-
-  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_11__["AuthContext"]),
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_13__["AuthContext"]),
       access_token = _useContext.access_token;
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
@@ -73682,8 +73760,6 @@ function AdminDashboard() {
   }, [semester, namaKelas]);
 
   function getSelectedJadwal() {
-    console.log(tahun, semester, namaKelas, kodeProdi);
-
     if (tahun !== "" && semester !== "" && namaKelas !== "" && kodeProdi !== '') {
       if (jadwal[semester]) {
         if (jadwal[semester][kodeProdi][namaKelas]) {
@@ -73783,26 +73859,25 @@ function AdminDashboard() {
       });
       setOpen2(false);
     } else {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_13___default.a.fire('Error!', 'Dosen yang sama telah ditambahkan sebelumnya!', 'error');
+      sweetalert2__WEBPACK_IMPORTED_MODULE_15___default.a.fire('Error!', 'Dosen yang sama telah ditambahkan sebelumnya!', 'error');
     }
   }
 
   function submitHandler(e) {
     e.preventDefault();
-    axios__WEBPACK_IMPORTED_MODULE_9___default.a.post("".concat(_config__WEBPACK_IMPORTED_MODULE_10__["BASE_API_URL"], "/jadwal"), form, {
+    axios__WEBPACK_IMPORTED_MODULE_11___default.a.post("".concat(_config__WEBPACK_IMPORTED_MODULE_12__["BASE_API_URL"], "/jadwal"), form, {
       headers: {
         Authorization: access_token
       }
-    }).then(function (_ref) {
-      var data = _ref.data;
+    }).then(function () {
       refetch();
-      sweetalert2__WEBPACK_IMPORTED_MODULE_13___default.a.fire('Berhasil!', 'Jadwal berhasil ditambahkan', 'success');
+      sweetalert2__WEBPACK_IMPORTED_MODULE_15___default.a.fire('Berhasil!', 'Jadwal berhasil ditambahkan', 'success');
       handleClose();
     })["catch"](function (err) {
       if (err.response.status === 422) setErrors(err.response.data.errors);
 
       if (err.response.status === 500) {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_13___default.a.fire('Gagal!', err.response.data.messages, 'error');
+        sweetalert2__WEBPACK_IMPORTED_MODULE_15___default.a.fire('Gagal!', err.response.data.messages, 'error');
       }
 
       ;
@@ -73812,17 +73887,17 @@ function AdminDashboard() {
   }
 
   function deleteClickHandler(id) {
-    axios__WEBPACK_IMPORTED_MODULE_9___default.a["delete"]("".concat(_config__WEBPACK_IMPORTED_MODULE_10__["BASE_API_URL"], "/jadwal/").concat(id)).then(function () {
+    axios__WEBPACK_IMPORTED_MODULE_11___default.a["delete"]("".concat(_config__WEBPACK_IMPORTED_MODULE_12__["BASE_API_URL"], "/jadwal/").concat(id)).then(function () {
       refetch();
-      sweetalert2__WEBPACK_IMPORTED_MODULE_13___default.a.fire('Berhasil!', 'Jadwal berhasil dihapus', 'success');
+      sweetalert2__WEBPACK_IMPORTED_MODULE_15___default.a.fire('Berhasil!', 'Jadwal berhasil dihapus', 'success');
     });
   }
 
-  function handleOpen() {
+  function openJadwalModalHandler() {
     setOpen(true);
   }
 
-  function handleClose() {
+  function closeJadwalModalHandler() {
     setOpen(false);
     setSelectedDosen([]);
     setErrors([]);
@@ -73834,61 +73909,22 @@ function AdminDashboard() {
     setDosenId('');
   }
 
-  function dosenDetail(dosen) {
-    if (dosen) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-      className: "m-3",
-      cellPadding: "5"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Nama"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ":"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, dosen.nama)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "NIDN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ":"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, dosen.nidn)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "NIP"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ":"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, dosen.nip))));
-    return '';
-  }
-
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AdminMain__WEBPACK_IMPORTED_MODULE_1__["default"], {
     title: "Jadwal"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    onSubmit: submitHandler
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_6__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    name: "tahun",
-    onChange: tahunChangeHandler
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: ""
-  }, "Pilih Tahun"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: 2016
-  }, "2016"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: 2017
-  }, "2017"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: 2018
-  }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: 2019
-  }, "2019"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_6__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    value: semester,
-    onChange: semesterChangeHandler
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: ""
-  }, "Pilih Semester"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: 1
-  }, "Ganjil"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: 2
-  }, "Genap"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_6__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    name: "kelas_id",
-    value: form.kelas_id,
-    onChange: kelasChangeHandler
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: ""
-  }, "Pilih Kelas"), kelas.map(function (k) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-      key: k.kelas_id,
-      value: k.kelas_id
-    }, k.nama);
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_6__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    type: "button",
-    onClick: handleOpen,
-    text: "Tambah Jadwal",
-    disabled: tahun === "" || semester === "" || namaKelas === ""
-  })))), loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Loading__WEBPACK_IMPORTED_MODULE_3__["default"], null) : tahun === "" || semester === "" || namaKelas === "" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_AdminJadwalFilterForm__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    semsester: semester,
+    kelas: kelas,
+    form: form,
+    openJadwalModalHandler: openJadwalModalHandler,
+    tahunChangeHandler: tahunChangeHandler,
+    semesterChangeHandler: semesterChangeHandler,
+    namaKelas: namaKelas,
+    submitHandler: submitHandler,
+    kelasChangeHandler: kelasChangeHandler,
+    tahun: tahun
+  }), loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Loading__WEBPACK_IMPORTED_MODULE_3__["default"], null) : tahun === "" || semester === "" || namaKelas === "" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "h-64 flex items-center justify-center"
-  }, "Silahkan Pilih Tahun, Semester, Dan Nama Kelas Lebih dulu") : Object.keys(getSelectedJadwal()).length ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SelectedJadwal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, "Silahkan Pilih Tahun, Semester, Dan Nama Kelas Lebih dulu") : Object.keys(getSelectedJadwal()).length ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_SelectedJadwal__WEBPACK_IMPORTED_MODULE_6__["default"], {
     deleteClickHandler: deleteClickHandler,
     selectedJadwal: getSelectedJadwal()
   }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -73896,9 +73932,9 @@ function AdminDashboard() {
   }, "Tidak ditemukan jadwal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Modal__WEBPACK_IMPORTED_MODULE_4__["default"], {
     title: "Tambah Jadwal",
     isOpen: open,
-    handleOpen: handleOpen,
-    handleClose: handleClose
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_JadwalForm__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    handleOpen: openJadwalModalHandler,
+    handleClose: closeJadwalModalHandler
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_JadwalForm__WEBPACK_IMPORTED_MODULE_14__["default"], {
     selectedDosen: selectedDosen,
     hari: hari,
     mata_kuliah: mata_kuliah,
@@ -73915,9 +73951,11 @@ function AdminDashboard() {
     handleClose: function handleClose() {
       return setOpen2(false);
     }
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, dosenId !== '' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, dosenDetail(dosen.find(function (d) {
-    return d.nidn === dosenId;
-  }))) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_6__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, dosenId !== '' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_DosenDetail__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    dosen: dosen.find(function (d) {
+      return d.nidn === dosenId;
+    })
+  })) : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_7__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_8__["default"], {
     onChange: function onChange(e) {
       return setDosenId(e.target.value);
     }
@@ -73928,7 +73966,7 @@ function AdminDashboard() {
       value: d.nidn,
       key: d.nidn
     }, d.nama);
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_6__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_7__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_10__["default"], {
     onClick: tambahDosenPengajarClickHandler,
     color: "secondary",
     text: "Tambah Dosen"
@@ -73939,10 +73977,10 @@ function AdminDashboard() {
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/Admin/AdminJadwal/SelectedJadwal.js":
-/*!***************************************************************************!*\
-  !*** ./resources/js/components/pages/Admin/AdminJadwal/SelectedJadwal.js ***!
-  \***************************************************************************/
+/***/ "./resources/js/components/pages/Admin/AdminJadwal/components/DosenDetail.js":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/pages/Admin/AdminJadwal/components/DosenDetail.js ***!
+  \***********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -73952,8 +73990,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
-function loopWaktu(waktu, deleteClickHandler) {
-  return Object.keys(waktu).map(function (key, index) {
+function DosenDetail(_ref) {
+  var dosen = _ref.dosen;
+  if (dosen) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "m-3",
+    cellPadding: "5"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Nama"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ":"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, dosen.nama)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "NIDN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ":"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, dosen.nidn)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "NIP"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ":"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, dosen.nip))));
+  return '';
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (DosenDetail);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/Admin/AdminJadwal/components/SelectedJadwal.js":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/pages/Admin/AdminJadwal/components/SelectedJadwal.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function Waktu(_ref) {
+  var waktu = _ref.waktu,
+      deleteClickHandler = _ref.deleteClickHandler;
+  return Object.keys(waktu).map(function (key) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: key,
       className: "py-3 px-10",
@@ -73971,8 +74040,10 @@ function loopWaktu(waktu, deleteClickHandler) {
   });
 }
 
-function loopHari(hari, deleteClickHandler) {
-  return Object.keys(hari).map(function (key, index) {
+function Hari(_ref2) {
+  var hari = _ref2.hari,
+      deleteClickHandler = _ref2.deleteClickHandler;
+  return Object.keys(hari).map(function (key) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: key,
       className: "rounded-lg shadow bg-white p-1 mx-2 animated fadeInDown faster flex-init my-3"
@@ -73980,18 +74051,28 @@ function loopHari(hari, deleteClickHandler) {
       className: "rounded-lg p-5 border-b-2 border-blue-500 font-bold text-center text-blue-500"
     }, key), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "text-center text-sm"
-    }, loopWaktu(hari[key], deleteClickHandler)));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Waktu, {
+      waktu: hari[key],
+      deleteClickHandler: deleteClickHandler
+    })));
   });
 }
 
-function SelectedJadwal(_ref) {
-  var selectedJadwal = _ref.selectedJadwal,
-      deleteClickHandler = _ref.deleteClickHandler;
+function SelectedJadwal(props) {
+  var selectedJadwal = props.selectedJadwal;
+  var deleteClickHandler = props.deleteClickHandler;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex flex-wrap"
-  }, "mantap", loopHari(selectedJadwal, deleteClickHandler));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hari, {
+    hari: selectedJadwal,
+    deleteClickHandler: deleteClickHandler
+  }));
 }
 
+SelectedJadwal.propTypes = {
+  selectedJadwal: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object,
+  deleteClickHandler: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
+};
 /* harmony default export */ __webpack_exports__["default"] = (SelectedJadwal);
 
 /***/ }),
@@ -74015,6 +74096,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/Navbar */ "./resources/js/components/components/Navbar.js");
 /* harmony import */ var _components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/forms/FormGroup */ "./resources/js/components/components/forms/FormGroup.js");
 /* harmony import */ var _components_forms_InputText__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/forms/InputText */ "./resources/js/components/components/forms/InputText.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_8__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -74022,6 +74105,7 @@ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructur
 function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -74091,6 +74175,9 @@ function Login(props) {
   }, "Masuk")))))));
 }
 
+Login.propTypes = {
+  history: prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.object
+};
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Login));
 
 /***/ }),
@@ -74150,7 +74237,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_DosenMain__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/DosenMain */ "./resources/js/components/components/DosenMain.js");
 /* harmony import */ var _helper_generateUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/helper/generateUrl */ "./resources/js/components/helper/generateUrl.js");
-/* harmony import */ var _contexts_auth_context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/contexts/auth-context */ "./resources/js/components/contexts/auth-context.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _contexts_auth_context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/contexts/auth-context */ "./resources/js/components/contexts/auth-context.js");
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -74168,51 +74257,39 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function DosenModul() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
-      open = _useState2[0],
-      setOpen = _useState2[1];
+      mataKuliah = _useState2[0],
+      setMataKuliah = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
       _useState4 = _slicedToArray(_useState3, 2),
-      mataKuliah = _useState4[0],
-      setMataKuliah = _useState4[1];
+      form = _useState4[0],
+      setForm = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState6 = _slicedToArray(_useState5, 2),
-      form = _useState6[0],
-      setForm = _useState6[1];
+      modul = _useState6[0],
+      setModul = _useState6[1];
 
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
-      _useState8 = _slicedToArray(_useState7, 2),
-      modul = _useState8[0],
-      setModul = _useState8[1];
-
-  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_3__["AuthContext"]),
+  var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_4__["AuthContext"]),
       nidn = _useContext.nidn;
 
-  var auth = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_3__["AuthContext"]);
+  var auth = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_4__["AuthContext"]);
 
   function fetchModul() {
-    axios.get(Object(_helper_generateUrl__WEBPACK_IMPORTED_MODULE_2__["default"])('dosen/' + nidn + '/modul')).then(function (_ref) {
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(Object(_helper_generateUrl__WEBPACK_IMPORTED_MODULE_2__["default"])('dosen/' + nidn + '/modul')).then(function (_ref) {
       var data = _ref.data;
       setModul(data);
     });
   }
 
-  var handleOpen = function handleOpen() {
-    setOpen(true);
-  };
-
-  var handleClose = function handleClose() {
-    setOpen(false);
-  };
-
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     console.log(auth);
     fetchModul();
-    axios.get(Object(_helper_generateUrl__WEBPACK_IMPORTED_MODULE_2__["default"])('mata-kuliah')).then(function (_ref2) {
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(Object(_helper_generateUrl__WEBPACK_IMPORTED_MODULE_2__["default"])('mata-kuliah')).then(function (_ref2) {
       var data = _ref2.data;
       setMataKuliah(data);
     });
@@ -74225,8 +74302,7 @@ function DosenModul() {
     form.mata_kuliah_id && body.append('mata_kuliah_id', form.mata_kuliah_id);
     form.modul_file && body.append('modul_file', form.modul_file);
     console.log(form);
-    axios.post(Object(_helper_generateUrl__WEBPACK_IMPORTED_MODULE_2__["default"])('modul'), body).then(function (_ref3) {
-      var data = _ref3.data;
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(Object(_helper_generateUrl__WEBPACK_IMPORTED_MODULE_2__["default"])('modul'), body).then(function () {
       fetchModul();
     })["catch"](function (err) {
       console.log(err);
@@ -74234,8 +74310,7 @@ function DosenModul() {
   }
 
   function clickHandler(id) {
-    axios["delete"](Object(_helper_generateUrl__WEBPACK_IMPORTED_MODULE_2__["default"])('modul/' + id)).then(function (_ref4) {
-      var data = _ref4.data;
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a["delete"](Object(_helper_generateUrl__WEBPACK_IMPORTED_MODULE_2__["default"])('modul/' + id)).then(function () {
       fetchModul();
     });
   }
@@ -74309,6 +74384,9 @@ function DosenModul() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 function AgendaItem(_ref) {
@@ -74320,6 +74398,11 @@ function AgendaItem(_ref) {
     className: "text-sm"
   }, tanggal));
 }
+
+AgendaItem.propTypes = {
+  judul: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  tanggal: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+};
 
 function Agenda() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -74351,9 +74434,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_BeritaItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/BeritaItem */ "./resources/js/components/components/BeritaItem.js");
 /* harmony import */ var _hooks_useAxios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/hooks/useAxios */ "./resources/js/components/hooks/useAxios.js");
-/* harmony import */ var _components_ErrorBoundary__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/ErrorBoundary */ "./resources/js/components/components/ErrorBoundary.js");
-/* harmony import */ var _components_FetchedData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/FetchedData */ "./resources/js/components/components/FetchedData.js");
-
+/* harmony import */ var _components_FetchedData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/FetchedData */ "./resources/js/components/components/FetchedData.js");
 
 
 
@@ -74371,7 +74452,7 @@ function BeritaTerbaru() {
     className: "md:flex-8 lg:flex-9 px-8 py-10 lg:px-8 xl:px-24 xl:py-10 bg-gray-200"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "text-2xl my-3 font-open"
-  }, "Berita"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FetchedData__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, "Berita"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FetchedData__WEBPACK_IMPORTED_MODULE_3__["default"], {
     error: error,
     loading: loading
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -74436,11 +74517,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/Navbar */ "./resources/js/components/components/Navbar.js");
-/* harmony import */ var _components_Loading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/Loading */ "./resources/js/components/components/Loading.js");
-/* harmony import */ var _components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/forms/InputSelect */ "./resources/js/components/components/forms/InputSelect.js");
-/* harmony import */ var _components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/components/forms/FormGroup */ "./resources/js/components/components/forms/FormGroup.js");
-/* harmony import */ var _hooks_useAxios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/hooks/useAxios */ "./resources/js/components/hooks/useAxios.js");
-/* harmony import */ var _components_FetchedData__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/components/FetchedData */ "./resources/js/components/components/FetchedData.js");
+/* harmony import */ var _components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/forms/InputSelect */ "./resources/js/components/components/forms/InputSelect.js");
+/* harmony import */ var _components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/forms/FormGroup */ "./resources/js/components/components/forms/FormGroup.js");
+/* harmony import */ var _hooks_useAxios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/hooks/useAxios */ "./resources/js/components/hooks/useAxios.js");
+/* harmony import */ var _components_FetchedData__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/components/FetchedData */ "./resources/js/components/components/FetchedData.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -74448,7 +74528,6 @@ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructur
 function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
@@ -74475,12 +74554,12 @@ function Jadwal() {
 
   var isInitialMount = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(true);
 
-  var _useAxios = Object(_hooks_useAxios__WEBPACK_IMPORTED_MODULE_5__["default"])({
+  var _useAxios = Object(_hooks_useAxios__WEBPACK_IMPORTED_MODULE_4__["default"])({
     'url': 'prodi'
   }),
       prodi = _useAxios.data;
 
-  var _useAxios2 = Object(_hooks_useAxios__WEBPACK_IMPORTED_MODULE_5__["default"])({
+  var _useAxios2 = Object(_hooks_useAxios__WEBPACK_IMPORTED_MODULE_4__["default"])({
     url: "jadwal?tahun=".concat(tahun)
   }),
       jadwal = _useAxios2.data,
@@ -74488,14 +74567,14 @@ function Jadwal() {
       refetch = _useAxios2.refetch,
       error = _useAxios2.error;
 
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function (s) {
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (isInitialMount.current) isInitialMount.current = false;else {
       refetch();
     }
   }, [tahun]);
 
   function loopWaktu(waktu) {
-    return Object.keys(waktu).map(function (key, index) {
+    return Object.keys(waktu).map(function (key) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: key,
         className: "py-3 px-10"
@@ -74506,7 +74585,7 @@ function Jadwal() {
   }
 
   function loopHari(hari, semester) {
-    return Object.keys(hari).map(function (key, index) {
+    return Object.keys(hari).map(function (key) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: key,
         className: "rounded-lg shadow bg-white p-1 mx-2 animated fadeInDown faster flex-init my-3"
@@ -74521,13 +74600,7 @@ function Jadwal() {
   function Kelas(_ref) {
     var kelas = _ref.kelas,
         semester = _ref.semester;
-
-    var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-        _useState8 = _slicedToArray(_useState7, 2),
-        show = _useState8[0],
-        setShow = _useState8[1];
-
-    return Object.keys(kelas).map(function (key, index) {
+    return Object.keys(kelas).map(function (key) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         key: key
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -74575,7 +74648,7 @@ function Jadwal() {
     className: "p-3 mt-20 lg:p-10"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex flex-wrap"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_4__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_3__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
     value: tahun,
     onChange: function onChange(e) {
       setTahun(parseInt(e.target.value));
@@ -74589,7 +74662,7 @@ function Jadwal() {
     value: 2018
   }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: 2019
-  }, "2019"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_4__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, "2019"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_3__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
     value: semester,
     onChange: function onChange(e) {
       return setSemester(parseInt(e.target.value));
@@ -74598,7 +74671,7 @@ function Jadwal() {
     value: 1
   }, "Ganjil"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: 2
-  }, "Genap"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_4__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, "Genap"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_3__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
     width: "full",
     value: kodeProdi,
     onChange: function onChange(e) {
@@ -74611,7 +74684,7 @@ function Jadwal() {
       key: p.kode,
       value: p.kode
     }, p.nama);
-  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FetchedData__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FetchedData__WEBPACK_IMPORTED_MODULE_5__["default"], {
     loading: loading,
     error: error
   }, loopJadwal(semester)))));
@@ -74771,7 +74844,6 @@ function Modul() {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, m.judul), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "ml-3"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      target: "_blank",
       className: "absolute",
       style: {
         top: 5,

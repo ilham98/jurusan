@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import { createContext } from 'react';
 import Cookies from 'js-cookie';
 
 export const initialState = {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Navbar from '@/components/Navbar';
-import Loading from '@/components/Loading';
 import InputSelect from '@/components/forms/InputSelect';
 import FormGroup from '@/components/forms/FormGroup';
 import useAxios from '@/hooks/useAxios';
@@ -19,7 +18,7 @@ function Jadwal() {
 		error
 	} = useAxios({ url: `jadwal?tahun=${tahun}`});
 
-	useEffect(s => {
+	useEffect(() => {
 		if(isInitialMount.current)
 			isInitialMount.current = false;
 		else {
@@ -28,7 +27,7 @@ function Jadwal() {
 	}, [tahun]);
 
 	function loopWaktu(waktu) {
-		return Object.keys(waktu).map(function(key, index) {
+		return Object.keys(waktu).map(function(key) {
 			return (
 				<div key={ key } className='py-3 px-10'>
 					<div className='whitespace-no-wrap text-sm text-center'>{ key }</div>
@@ -39,7 +38,7 @@ function Jadwal() {
 	}
 
 	function loopHari(hari, semester) {
-		return Object.keys(hari).map(function(key, index) {
+		return Object.keys(hari).map(function(key) {
 			return (
 				<div key={ key } className='rounded-lg shadow bg-white p-1 mx-2 animated fadeInDown faster flex-init my-3'>
 					<div className={`rounded-lg p-5 border-b-2  ${ semester === 1 ?  'border-blue-500 text-blue-500' :  'border-orange-500 text-orange-500'  } font-bold text-center`}>{ key }</div>
@@ -49,9 +48,8 @@ function Jadwal() {
 		});
 	}
 
-	function Kelas({kelas, semester}) {
-		const [show, setShow] = useState(false);	
-		return Object.keys(kelas).map(function(key, index) {
+	function Kelas({kelas, semester}) {	
+		return Object.keys(kelas).map(function(key) {
 			return (
 				<div key={ key }>
 					<div className="my-3">

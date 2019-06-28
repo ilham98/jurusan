@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import DosenMain from '@/components/DosenMain';
 import generateUrl from '@/helper/generateUrl';
+import axios from 'axios';
 import { AuthContext } from '@/contexts/auth-context';
 
 function DosenModul() {
-	const [ open, setOpen ] = useState(false);
 	const [ mataKuliah, setMataKuliah ] = useState([]);
 	const [ form, setForm ] = useState({});
 	const [ modul, setModul ] = useState([]);
@@ -16,14 +16,6 @@ function DosenModul() {
 			.then(({data}) => {
 				setModul(data);
 			});
-	}
-
-	const handleOpen = () => {
-		setOpen(true);
-	}
-
-	const handleClose = () => {
-		setOpen(false);
 	}
 
 	useEffect(() => {
@@ -43,7 +35,7 @@ function DosenModul() {
 		form.modul_file && body.append('modul_file', form.modul_file);
 		console.log(form);
 		axios.post(generateUrl('modul'), body)
-			.then(({ data }) => {
+			.then(() => {
 				fetchModul();
 			}).catch(err => {
 				console.log(err);
@@ -52,7 +44,7 @@ function DosenModul() {
 
 	function clickHandler(id) {
 		axios.delete(generateUrl('modul/'+id))
-			.then(({ data }) => {
+			.then(() => {
 				fetchModul();
 			})
 	}

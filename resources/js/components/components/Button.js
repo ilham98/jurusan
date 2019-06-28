@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Button(props) {
 	let color = 'white';
@@ -26,5 +27,10 @@ function Button(props) {
 		</button>
 	);
 };
+
+Button.propTypes = {
+	color: PropTypes.string,
+	text: PropTypes.string
+}
 
 export default Button;

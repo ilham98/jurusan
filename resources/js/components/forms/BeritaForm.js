@@ -4,6 +4,7 @@ import api from '@/services/api';
 import InputText from '@/components/forms/InputText';
 import FormGroup from '@/components/forms/FormGroup';
 import Swal from 'sweetalert2';
+import PropTypes from 'prop-types';
 
 function BeritaForm(props) {
 
@@ -67,5 +68,9 @@ function BeritaForm(props) {
 		</form>
 	);	
 }
+
+BeritaForm.propTypes = {
+	closeModal: PropTypes.func
+};
 
 export default BeritaForm;

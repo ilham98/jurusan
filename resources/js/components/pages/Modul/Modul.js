@@ -95,7 +95,7 @@ function Modul() {
 										<div className="flex flex-initial justify-between text-gray-900">
 											<div>{ m.judul }</div>
 											<div className='ml-3'>
-												<a target='_blank' className='absolute' style={{ top: 5, right: 10 }} href={ m.modul_url }>
+												<a className='absolute' style={{ top: 5, right: 10 }} href={ m.modul_url }>
 													<i className='text-orange-500 hover:bg-orange-300 hover:text-orange-600 p-2 rounded-full fas fa-arrow-down' />
 												</a>
 											</div>

@@ -3,9 +3,11 @@ import AdminMain from '@/components/AdminMain';
 import useAxios from '@/hooks/useAxios';
 import Loading from '@/components/Loading';
 import Modal from '@/components/Modal';
-import SelectedJadwal from './SelectedJadwal';
+import DosenDetail  from './components/DosenDetail';
+import SelectedJadwal from './components/SelectedJadwal';
 import FormGroup from '@/components/forms/FormGroup';
 import InputSelect from '@/components/forms/InputSelect';
+import AdminJadwalFilterForm from '@/forms/AdminJadwalFilterForm';
 import Button from '@/components/Button';
 import axios from 'axios';
 import { BASE_API_URL } from '@/config';
@@ -23,8 +25,7 @@ function AdminDashboard() {
 	const { data:mata_kuliah } = useAxios({ url: 'mata-kuliah' });
 	const { data:ruangan } = useAxios({ url: 'ruangan' });
 	const { data:dosen } = useAxios({ url: 'dosen' });
-	const [kelas, setKelas] = useState([]);
-	const [selectedJadwal, setSelectedJadwal] = useState({});
+	const [kelas, setKelas] = useState([]);	
 	const [dosenId, setDosenId] = useState('')
 	const [selectedDosen, setSelectedDosen] = useState([]);
 	const [namaKelas, setNamaKelas] = useState('');
@@ -69,7 +70,6 @@ function AdminDashboard() {
 	}, [semester, namaKelas]);
 
 	function getSelectedJadwal() {
-		console.log(tahun, semester, namaKelas, kodeProdi);
 		if(tahun !== "" && semester !== "" && namaKelas !== "" && kodeProdi !== '') {
 			if(jadwal[semester]) {
 				if(jadwal[semester][kodeProdi][namaKelas]) {
@@ -147,7 +147,7 @@ function AdminDashboard() {
 	function submitHandler(e) {
 		e.preventDefault();
 		axios.post(`${BASE_API_URL}/jadwal`, form, { headers: { Authorization: access_token } })
-			.then(({data}) => {
+			.then(() => {
 				refetch();
 				Swal.fire(
 				  'Berhasil!',
@@ -182,11 +182,11 @@ function AdminDashboard() {
 			})
 	}
 
-	function handleOpen() {
+	function openJadwalModalHandler() {
 		setOpen(true);
 	}
 
-	function handleClose() {
+	function closeJadwalModalHandler() {
 		setOpen(false);
 		setSelectedDosen([]);
 		setErrors([]);
@@ -194,67 +194,20 @@ function AdminDashboard() {
 		setDosenId('');
 	}
 
-	function dosenDetail(dosen) {
-		if(dosen)
-			return (
-				<table className='m-3' cellPadding='5'>
-					<tbody>
-						<tr>
-							<td>Nama</td>
-							<td>:</td>
-							<td>{ dosen.nama }</td>
-						</tr>
-						<tr>
-							<td>NIDN</td>
-							<td>:</td>
-							<td>{ dosen.nidn }</td>
-						</tr>
-						<tr>
-							<td>NIP</td>
-							<td>:</td>
-							<td>{ dosen.nip }</td>
-						</tr>
-					</tbody>
-				</table>
-			);
-		return '';
-	}
-
 	return (
 		<AdminMain title='Jadwal'>
-			<form onSubmit={ submitHandler }>
-				<div className="flex">
-					<FormGroup>
-						<InputSelect name="tahun" onChange={ tahunChangeHandler }>
-							<option value="">Pilih Tahun</option>
-							<option value={ 2016 }>2016</option>
-							<option value={ 2017 }>2017</option>
-							<option value={ 2018 }>2018</option>
-							<option value={ 2019 }>2019</option>
-						</InputSelect>
-					</FormGroup>
-					<FormGroup>
-						<InputSelect value={ semester } onChange={ semesterChangeHandler }>
-							<option value="">Pilih Semester</option>
-							<option value={ 1 }>Ganjil</option>
-							<option value={ 2 }>Genap</option>
-						</InputSelect>
-					</FormGroup>
-					<FormGroup>
-						<InputSelect name="kelas_id" value={ form.kelas_id } onChange={ kelasChangeHandler }>
-							<option value="">Pilih Kelas</option>
-								{
-									kelas.map(k => (
-										<option key={ k.kelas_id } value={ k.kelas_id }>{ k.nama }</option>	
-									)) 
-								}
-						</InputSelect>
-					</FormGroup>
-					<FormGroup>
-						<Button type="button" onClick={ handleOpen } text='Tambah Jadwal' disabled={ tahun === "" || semester === "" || namaKelas === "" } />
-					</FormGroup>
-				</div>
-			</form>
+			<AdminJadwalFilterForm  
+				semsester={ semester }
+				kelas= {kelas}
+				form={ form }
+				openJadwalModalHandler={ openJadwalModalHandler }
+				tahunChangeHandler={ tahunChangeHandler }
+				semesterChangeHandler={ semesterChangeHandler }
+				namaKelas={ namaKelas }
+				submitHandler= { submitHandler }
+				kelasChangeHandler={ kelasChangeHandler }
+				tahun={ tahun }
+			/>
 			{
 				loading ?
 					<Loading /> :
@@ -273,8 +226,8 @@ function AdminDashboard() {
 			<Modal 
 				title='Tambah Jadwal'
 				isOpen={open}
-				handleOpen={handleOpen}
-				handleClose={handleClose}
+				handleOpen={openJadwalModalHandler}
+				handleClose={closeJadwalModalHandler}
 			>
 				<JadwalForm 
 					selectedDosen={ selectedDosen }
@@ -296,7 +249,7 @@ function AdminDashboard() {
 					{ 
 						dosenId !== '' ? (
 							<div>
-								{ dosenDetail(dosen.find(d => d.nidn === dosenId)) }
+								<DosenDetail dosen={ dosen.find(d => d.nidn === dosenId) }/>
 							</div>
 						) : '' 
 					}

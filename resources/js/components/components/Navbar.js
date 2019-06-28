@@ -1,6 +1,7 @@
 import { Link, withRouter } from 'react-router-dom';
 import Logo from '../assets/img/logo.webp';
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 let Item = ({ location, path, text, handleClose }) => {
   const current_path = location.pathname;
@@ -11,9 +12,16 @@ let Item = ({ location, path, text, handleClose }) => {
   )
 }
 
+Item.propTypes = {
+  location: PropTypes.object,
+  path: PropTypes.string,
+  text: PropTypes.string,
+  handleClose: PropTypes.func
+}
+
 Item = withRouter(Item);
 
-function Navbar(props) {
+function Navbar() {
   const [ color, setColor ] = useState('white');
   const [ open, setOpen ] = useState(false);
 
@@ -24,10 +32,6 @@ function Navbar(props) {
       setColor('white');
     }
   };
-
-  function handleClose() {
-    setOpen(false);
-  }
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);

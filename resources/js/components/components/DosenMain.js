@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '@/contexts/auth-context';
 import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 let Item = ({ name, to, location, icon }) => {
 	const path = location.pathname;
@@ -8,6 +9,13 @@ let Item = ({ name, to, location, icon }) => {
 		<Link className={ `text-gray-800 ${ to === path && 'text-gray-900 font-bold border-b-2 bg-orange-300 border-orange-500' } py-2 px-10 mt-1` } to={ to }>{ name } <i className={ `text-gray-700 ml-2 ${ to === path && 'text-orange-700' } ${icon}` }></i></Link>
 	);
 };
+
+Item.propTypes = {
+	name: PropTypes.string,
+	to: PropTypes.string,
+	location: PropTypes.object,
+	icon: PropTypes.string
+}
 
 Item = withRouter(Item);
 
@@ -32,6 +40,11 @@ function DosenMain(props) {
 			</div>
 		</div>
 	);
+}
+
+DosenMain.propTypes = {
+	title: PropTypes.string,
+	children: PropTypes.array
 }
 
 export default DosenMain;

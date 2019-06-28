@@ -1,12 +1,10 @@
-import React, { Fragment, useContext, useEffect, useRef } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '@/contexts/auth-context';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
 
 function withAuth(Component, _role) {
-	function _Component(props) {
-		const initialMount = useRef(true);
-		const { authenticated, role, signin } = useContext(AuthContext);
+	function _Component() {
+		const { authenticated, role } = useContext(AuthContext);
 		if(!authenticated) {
 			return <Redirect to='/login' />
 		}
@@ -15,7 +13,7 @@ function withAuth(Component, _role) {
 		return (
 			<AuthContext.Consumer>
 			{ 
-				value => {
+				() => {
 					return(
 						<Component />
 					)

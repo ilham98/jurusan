@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 function FormGroup(props) {
 
@@ -14,6 +15,12 @@ function FormGroup(props) {
 			{ props.children }
 		</div>
 	);
+}
+
+FormGroup.propTypes = {
+	flex: PropTypes.string,
+	align: PropTypes.string,
+	children: PropTypes.object	
 }
 
 export default FormGroup;

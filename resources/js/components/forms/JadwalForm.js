@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import FormGroup from '@/components/forms/FormGroup';
 import InputSelect from '@/components/forms/InputSelect';
 import Button from '@/components/Button';
-import Modal from '@/components/Modal';
+import PropTypes from 'prop-types';
 
 function JadwalForm(props) {
+	const { hari, mata_kuliah, ruangan, form, selectedDosen, errors } = props;
+	const { changeHandler, submitHandler, teacherModalHandleOpen } = props;
 
 	useEffect(() => {
 		console.log('dosen_change')
-	}, [props.selectedDosen])
-
-	const { hari, mata_kuliah, ruangan, form, selectedDosen, errors } = props;
-	const { changeHandler, submitHandler, teacherModalHandleOpen } = props;
-	const [open, setOpen] = useState(true);
+	}, [props.selectedDosen]);
+	
 	return (
 		<form onSubmit={ submitHandler }>
 			<div className='flex flex-wrap'>
@@ -66,7 +65,7 @@ function JadwalForm(props) {
 					selectedDosen && selectedDosen.length === 0 ?
 					<div>---Dosen Pengajar Belum Ditambahkan---</div> :
 					selectedDosen.map((s, key) => (
-						<div key={s.nidn} className='mt-2' key={s.nidn}>{key+1}. { s.nama }</div>
+						<div key={s.nidn} className='mt-2'>{key+1}. { s.nama }</div>
 					))
 				}
 			</div>
@@ -80,6 +79,18 @@ function JadwalForm(props) {
 			</div>
 		</form>
 	)
+}
+
+JadwalForm.propTypes = {
+	hari: PropTypes.array,
+	mata_kuliah: PropTypes.array,
+	ruangan: PropTypes.array,
+	form: PropTypes.object,
+	selectedDosen: PropTypes.array,
+	errors: PropTypes.object,
+	changeHandler: PropTypes.func,
+	submitHandler: PropTypes.func,
+	teacherModalHandleOpen: PropTypes.func,
 }
 
 export default JadwalForm;

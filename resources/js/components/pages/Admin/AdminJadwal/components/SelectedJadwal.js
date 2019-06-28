@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
-function loopWaktu(waktu, deleteClickHandler) {
-	return Object.keys(waktu).map(function(key, index) {
+function Waktu({waktu, deleteClickHandler }) {
+	return Object.keys(waktu).map(function(key) {
 		return (
 			<div key={ key } className='py-3 px-10' style={{ minWidth: '200px' }}>
 				<div className='whitespace-no-wrap text-sm text-center'>
@@ -13,26 +14,34 @@ function loopWaktu(waktu, deleteClickHandler) {
 	});
 }
 
-function loopHari(hari, deleteClickHandler) {
-	return Object.keys(hari).map(function(key, index) {
+function Hari({hari, deleteClickHandler}) {
+	return Object.keys(hari).map(function(key) {
 		return (
 			<div key={ key } className='rounded-lg shadow bg-white p-1 mx-2 animated fadeInDown faster flex-init my-3'>
 				<div className='rounded-lg p-5 border-b-2 border-blue-500 font-bold text-center text-blue-500'>{ key }</div>
-				<div className='text-center text-sm'>{ loopWaktu(hari[key], deleteClickHandler) }</div>
+				<div className='text-center text-sm'>
+					<Waktu waktu={ hari[key] } deleteClickHandler={ deleteClickHandler } />
+				</div>
 			</div>
 		);
 	});
 }
 
-function SelectedJadwal({ selectedJadwal, deleteClickHandler }) {
+function SelectedJadwal(props) {
+	const { selectedJadwal } = props;
+	const { deleteClickHandler } = props;
 	return (
 		<div className='flex flex-wrap'>
-		mantap
 			{
-				loopHari(selectedJadwal, deleteClickHandler)
+				<Hari hari={ selectedJadwal } deleteClickHandler={ deleteClickHandler }/>
 			}
 		</div>
 	)
+}
+
+SelectedJadwal.propTypes = {
+	selectedJadwal: PropTypes.object,
+	deleteClickHandler: PropTypes.func
 }
 
 export default SelectedJadwal;

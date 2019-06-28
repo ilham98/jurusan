@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios, { CancelToken } from 'axios';
-import { BASE_API_URL } from '@/config';
 
-function useAxios({ url, method, body = {}, onSuccess = () => console.log('success'), onFail = () => console.log('failed') }) {
+function useAxios({ url, method, body = {}}) {
 	const [loading, setLoading] = useState(true);
 	const [data, setData] = useState([]);
 	const [error, setError] = useState(false);

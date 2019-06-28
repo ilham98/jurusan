@@ -1,5 +1,6 @@
 import React from 'react';
 import Loading from '@/components/Loading';
+import PropTypes from 'prop-types';
 
 function FetchedData(props) {
 	const { loading, error, children } = props;
@@ -12,6 +13,12 @@ function FetchedData(props) {
 	            ) : children
 	        )
 	)
+}
+
+FetchedData.propTypes = {
+	loading: PropTypes.bool,
+	error: PropTypes.bool,
+	children: PropTypes.array
 }
 
 export default FetchedData;
