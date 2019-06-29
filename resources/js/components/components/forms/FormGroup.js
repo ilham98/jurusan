@@ -11,7 +11,7 @@ function FormGroup(props) {
 	}
 
 	return (
-		<div className={ `p-3 ${ align() } flex-${flex}`}>
+		<div className={ `p-2 sm:p-3 ${ align() } flex-${flex}`}>
 			{ props.children }
 		</div>
 	);

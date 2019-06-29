@@ -22,7 +22,7 @@ function Button(props) {
 			bgColorHovered = 'blue-600';
 	} 
 	return (
-		<button { ...props } className={ `bg-${ bgColor } hover:bg-${ bgColorHovered } text-${ color } py-2 px-4 rounded` }>
+		<button { ...props } className={ `bg-${ bgColor } block hover:bg-${ bgColorHovered } text-${ color } py-2 px-4 rounded ${ props.disabled && 'cursor-not-allowed' }` }>
 		  { props.text }
 		</button>
 	);
@@ -30,7 +30,8 @@ function Button(props) {
 
 Button.propTypes = {
 	color: PropTypes.string,
-	text: PropTypes.string
+	text: PropTypes.string,
+	disabled: PropTypes.bool
 }
 
 export default Button;

@@ -14,7 +14,7 @@ function JadwalForm(props) {
 	
 	return (
 		<form onSubmit={ submitHandler }>
-			<div className='flex flex-wrap'>
+			<div className='sm:flex'>
 				<FormGroup>
 					<InputSelect name='hari_id' onChange={ changeHandler }>
 						<option value=''>Pilih hari</option>
@@ -37,7 +37,7 @@ function JadwalForm(props) {
 					</InputSelect>
 				</FormGroup>
 			</div>
-			<div className='flex flex-wrap'>
+			<div className='sm:flex'>
 				<FormGroup>
 					<InputSelect name='mata_kuliah_id' onChange={ changeHandler } error={errors['mata_kuliah_id']}>
 						<option value=''>Pilih Mata Kuliah</option>
@@ -69,7 +69,7 @@ function JadwalForm(props) {
 					))
 				}
 			</div>
-			<div className='flex'>
+			<div className='sm:flex'>
 				<FormGroup>
 					<Button type="submit" text='Tambah Jadwal' />
 				</FormGroup>
@@ -87,7 +87,7 @@ JadwalForm.propTypes = {
 	ruangan: PropTypes.array,
 	form: PropTypes.object,
 	selectedDosen: PropTypes.array,
-	errors: PropTypes.object,
+	errors: PropTypes.array,
 	changeHandler: PropTypes.func,
 	submitHandler: PropTypes.func,
 	teacherModalHandleOpen: PropTypes.func,

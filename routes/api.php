@@ -31,6 +31,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('modul', 'API\ModulController@index');
     Route::get('dosen/{nidn}/modul', 'API\DosenModulController@index');
     Route::get('dosen/{nidn}/jadwal', 'API\DosenJadwalController@index');
+    Route::get('agenda', 'API\AgendaController@index');
 });
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:admin'], function () {

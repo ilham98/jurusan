@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+// const myPlugin = require('@babel/plugin-proposal-export-default-from');
 
 /*
  |--------------------------------------------------------------------------
@@ -10,8 +11,6 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
-require('laravel-mix-eslint-config');	
 
 mix.webpackConfig({
 	resolve: {

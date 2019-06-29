@@ -31,7 +31,7 @@ function SelectedJadwal(props) {
 	const { selectedJadwal } = props;
 	const { deleteClickHandler } = props;
 	return (
-		<div className='flex flex-wrap'>
+		<div className='sm:flex flex-wrap'>
 			{
 				<Hari hari={ selectedJadwal } deleteClickHandler={ deleteClickHandler }/>
 			}

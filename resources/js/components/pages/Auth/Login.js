@@ -2,11 +2,11 @@ import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '@/contexts/auth-context';
 import axios from 'axios';
 import generateUrl from '@/helper/generateUrl';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import FormGroup from '@/components/forms/FormGroup';
 import InputText from '@/components/forms/InputText';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 function Login(props) {
 	const [ nidn, setNidn ] = useState('');
@@ -14,12 +14,13 @@ function Login(props) {
 	const { authenticated, role, signin } = useContext(AuthContext);
 
 	useEffect(() => {
+		console.log(authenticated);
 		document.title = 'Login';
-		if(authenticated) {
-			if(role === 'admin')
-				props.history.push('/a/jadwal');
-			else props.history.push('/t/modul');
-		}
+		// if(authenticated) {
+		// 	if(role === 'admin')
+		// 		props.history.push('/a/jadwal');
+		// 	else props.history.push('/t/modul');
+		// }
 	}, []);
 
 	function submitHandler(e) {
@@ -33,6 +34,13 @@ function Login(props) {
 			}).catch(err => {
 				console.log(err);
 			})
+	}
+
+	if(authenticated) {
+		if(role === 'admin')
+			return <Redirect to='/a/jadwal' />
+		else
+			return <Redirect to='/t/modul' />
 	}
 	return (
 		<div>

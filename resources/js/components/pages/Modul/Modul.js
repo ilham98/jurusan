@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '@/components/Navbar';
-import axios from 'axios';
+import axios, { CancelToken } from 'axios';
 import generateUrl from '@/helper/generateUrl';
 import Loading from '@/components/Loading';
 import InputSelect from '@/components/forms/InputSelect';
@@ -15,31 +15,56 @@ function Modul() {
 	const [loading, setLoading] = useState(true);
 	const [filter, setFilter] = useState({});
 	const [page, setPage] = useState(1);
+	const source = CancelToken.source();
+	const initialMount = useRef(true);
+	const initialMount2 = useRef(true);
 
 	function fetchModul() {
 		setLoading(true);
-		axios.get(generateUrl('modul?page='+page+'&filter='+JSON.stringify(filter)))
-			.then(({data}) => {
+		axios.get(
+				generateUrl('modul?page='+page+'&filter='+JSON.stringify(filter)), 
+				{ cancelToken: source.token }
+			).then(({data}) => {
 				setModul(data);
 				setLoading(false);
+			}).catch(thrown => {
+				if(axios.isCancel(thrown)) {
+					console.log('canceled');
+				} else {
+					setLoading(false);
+				}
 			});
 	}
 
 	useEffect(() => {
-		axios.get(generateUrl('mata-kuliah'))
+		axios.get(generateUrl('mata-kuliah'), { cancelToken: source.token })
 			.then(({data}) => {
 				setMataKuliah(data);
+			}).catch(thrown => {
+				if(axios.isCancel(thrown)) {
+					console.log('canceled');
+				} else {
+					
+				}
 			});
 		fetchModul(page);
 	}, []);
 
 	useEffect(() => {
-		setPage(1);
-		fetchModul();
+		if(initialMount.current) {
+			initialMount.current = false;
+		} else {
+			setPage(1);
+			fetchModul();
+		}
 	}, [filter])
 
 	useEffect(() => {
-		fetchModul();
+		if(initialMount2.current) {
+			initialMount2.current = false;
+		} else {
+			fetchModul();
+		}
 	}, [page])
 
 	function changeHandler(e) {

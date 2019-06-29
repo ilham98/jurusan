@@ -8600,6 +8600,25 @@ exports.push([module.i, "/*! normalize.css v8.0.1 | MIT License | github.com/nec
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/custom.css":
+/*!****************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/components/custom.css ***!
+  \****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "select::after {\r\n\tbackground-image:\r\n    linear-gradient(45deg, transparent 50%, blue 50%),\r\n    linear-gradient(135deg, blue 50%, transparent 50%),\r\n    linear-gradient(to right, skyblue, skyblue);\r\n  background-position:\r\n    calc(100% - 20px) calc(1em + 2px),\r\n    calc(100% - 15px) calc(1em + 2px),\r\n    100% 0;\r\n  background-size:\r\n    5px 5px,\r\n    5px 5px,\r\n    2.5em 2.5em;\r\n  background-repeat: no-repeat;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/index.css":
 /*!***************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/js/components/index.css ***!
@@ -72120,11 +72139,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var animate_css_animate_min_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(animate_css_animate_min_css__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _AppOutput_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AppOutput.css */ "./resources/js/components/AppOutput.css");
 /* harmony import */ var _AppOutput_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_AppOutput_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _contexts_auth_context__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/contexts/auth-context */ "./resources/js/components/contexts/auth-context.js");
-/* harmony import */ var _fortawesome_fontawesome_free_css_all_min_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/fontawesome-free/css/all.min.css */ "./node_modules/@fortawesome/fontawesome-free/css/all.min.css");
-/* harmony import */ var _fortawesome_fontawesome_free_css_all_min_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_css_all_min_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/src/js.cookie.js");
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./custom.css */ "./resources/js/components/custom.css");
+/* harmony import */ var _custom_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_custom_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _contexts_auth_context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/contexts/auth-context */ "./resources/js/components/contexts/auth-context.js");
+/* harmony import */ var _fortawesome_fontawesome_free_css_all_min_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/fontawesome-free/css/all.min.css */ "./node_modules/@fortawesome/fontawesome-free/css/all.min.css");
+/* harmony import */ var _fortawesome_fontawesome_free_css_all_min_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_css_all_min_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/src/js.cookie.js");
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_8__);
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -72146,8 +72167,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function App() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_5__["initialState"]),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_6__["initialState"]),
       _useState2 = _slicedToArray(_useState, 2),
       auth = _useState2[0],
       setAuth = _useState2[1];
@@ -72161,15 +72183,15 @@ function App() {
   };
 
   var signout = function signout() {
-    js_cookie__WEBPACK_IMPORTED_MODULE_7___default.a.remove('role');
-    js_cookie__WEBPACK_IMPORTED_MODULE_7___default.a.remove('access_token');
-    js_cookie__WEBPACK_IMPORTED_MODULE_7___default.a.remove('authenticated');
+    js_cookie__WEBPACK_IMPORTED_MODULE_8___default.a.remove('role');
+    js_cookie__WEBPACK_IMPORTED_MODULE_8___default.a.remove('access_token');
+    js_cookie__WEBPACK_IMPORTED_MODULE_8___default.a.remove('authenticated');
     setAuth({
       authenticated: false
     });
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_5__["AuthContext"].Provider, {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_6__["AuthContext"].Provider, {
     value: _objectSpread({}, auth, {
       signin: signin,
       signout: signout
@@ -72278,13 +72300,19 @@ function AdminMain(props) {
       open = _useState2[0],
       setOpen = _useState2[1];
 
+  function toggle() {
+    setOpen(function (o) {
+      return !o;
+    });
+  }
+
   var _useContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_contexts_auth_context__WEBPACK_IMPORTED_MODULE_1__["AuthContext"]),
       signout = _useContext.signout;
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "flex"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "bg-white hidden md:block h-screen fixed md:static flex-1 w-full",
+    className: "bg-white shadow-lg ".concat(!open && 'hidden', " h-screen ").concat(!open ? 'md:block' : 'md:hidden', " fixed md:static flex-1 w-full"),
     style: {
       minWidth: 250
     }
@@ -72304,25 +72332,36 @@ function AdminMain(props) {
     name: "Jadwal",
     to: "/a/jadwal",
     icon: "fas fa-calendar"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Item, {
+    name: "Agenda",
+    to: "/a/agenda",
+    icon: "fas fa-calendar"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Item, {
+    name: "Visi & Misi",
+    to: "/a/visi-misi",
+    icon: "fas fa-calendar"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex justify-center mt-5"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: function onClick() {
       return signout();
-    }
-  }, "Logout"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex-4 ".concat(open && 'mantap')
+    },
+    className: "border rounded border-orange-500 text-orange-600 px-2 py-1"
+  }, "Logout ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-sign-out-alt"
+  }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex-4"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "p-3 fas fa-bars",
-    onClick: function onClick() {
-      return setOpen(true);
-    }
+    onClick: toggle
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "p-5 bg-gray-300 shadow-lg agenda shadow-lg"
+    className: "bg-gray-300 shadow"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "text-2xl p-10 bg-blue-500 text-white"
+    className: "text-2xl px-5 py-3 bg-blue-400 text-white"
   }, props.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "bg-white px-10 py-10",
+    className: "bg-gray-100 p-2 md:px-10 md:py-10",
     style: {
-      maxHeight: '75vh',
+      height: 'calc(100vh - 100px)',
       overflowY: 'scroll'
     }
   }, props.children))));
@@ -72330,7 +72369,7 @@ function AdminMain(props) {
 
 AdminMain.propTypes = {
   title: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
-  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.array
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (AdminMain);
 
@@ -72431,14 +72470,15 @@ function Button(props) {
   }
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", _extends({}, props, {
-    className: "bg-".concat(bgColor, " hover:bg-").concat(bgColorHovered, " text-").concat(color, " py-2 px-4 rounded")
+    className: "bg-".concat(bgColor, " block hover:bg-").concat(bgColorHovered, " text-").concat(color, " py-2 px-4 rounded ").concat(props.disabled && 'cursor-not-allowed')
   }), props.text);
 }
 
 ;
 Button.propTypes = {
   color: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-  text: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+  text: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool
 };
 /* harmony default export */ __webpack_exports__["default"] = (Button);
 
@@ -72555,7 +72595,7 @@ function FetchedData(props) {
 FetchedData.propTypes = {
   loading: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
   error: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
-  children: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array
+  children: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object
 };
 /* harmony default export */ __webpack_exports__["default"] = (FetchedData);
 
@@ -72627,9 +72667,10 @@ function Modal(props) {
     }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     onClick: props.handleOpen,
-    className: "rounded border-blue-500 border-b-4 bg-white animated fadeInUp faster overflow-auto",
+    className: "rounded m-10 border-blue-500 border-b-4 bg-white animated fadeInUp faster overflow-auto",
     style: {
-      minWidth: 300
+      minWidth: 300,
+      maxHeight: '90vh'
     }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "py-3 px-10 text-center bg-blue-500 text-white shadow font-bold"
@@ -72776,6 +72817,38 @@ function Navbar() {
 
 /***/ }),
 
+/***/ "./resources/js/components/components/PaginationButton.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/components/PaginationButton.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function PaginationButton(props) {
+  var type = props.type;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "".concat(type === 'left' && 'mr-2', " hover:bg-green-300 text-green-800 h-8 w-8 rounded-full text-sm bg-green-200")
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "fas fa-arrow-".concat(type === 'right' ? 'right' : 'left')
+  }));
+}
+
+PaginationButton.propTypes = {
+  type: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+};
+/* harmony default export */ __webpack_exports__["default"] = (PaginationButton);
+
+/***/ }),
+
 /***/ "./resources/js/components/components/forms/FormGroup.js":
 /*!***************************************************************!*\
   !*** ./resources/js/components/components/forms/FormGroup.js ***!
@@ -72800,7 +72873,7 @@ function FormGroup(props) {
   }
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "p-3 ".concat(align(), " flex-").concat(flex)
+    className: "p-2 sm:p-3 ".concat(align(), " flex-").concat(flex)
   }, props.children);
 }
 
@@ -72835,7 +72908,7 @@ function InputSelect(props) {
   var error = props.error,
       width = props.width;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({}, props, {
-    className: "px-3 py-2 shadow border rounded inline text-gray-700 leading-tight focus:outline-none bg-white focus:shadow-outline ".concat(error && 'border-red-500', " w-").concat(width)
+    className: "px-3 py-2 border border-gray-300 rounded block w-full text-gray-700 leading-tight focus:outline-none bg-white focus:shadow-outline ".concat(error && 'border-red-500', " w-").concat(width)
   }), props.children);
 }
 
@@ -72866,12 +72939,223 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function InputText(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({}, props, {
-    className: "px-3 py-2 shadow appearance-none border rounded inline text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    className: "px-3 py-2 appearance-none border rounded inline text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
   }));
 }
 
 ;
 /* harmony default export */ __webpack_exports__["default"] = (InputText);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/table/Table.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/components/table/Table.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function Table(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "w-full"
+  }, props.children);
+}
+
+Table.propTypes = {
+  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node
+};
+/* harmony default export */ __webpack_exports__["default"] = (Table);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/table/Tbody.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/components/table/Tbody.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function Tbody(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+    className: "text-center"
+  }, props.children);
+}
+
+Tbody.propTypes = {
+  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node
+};
+/* harmony default export */ __webpack_exports__["default"] = (Tbody);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/table/Td.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/components/table/Td.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function Td(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    className: "p-2"
+  }, props.children);
+}
+
+Td.propTypes = {
+  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node
+};
+/* harmony default export */ __webpack_exports__["default"] = (Td);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/table/Th.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/components/table/Th.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function Th(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    className: "py-3 px-2 align-left"
+  }, props.children);
+}
+
+Th.propTypes = {
+  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node,
+  className: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+};
+/* harmony default export */ __webpack_exports__["default"] = (Th);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/table/Thead.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/components/table/Thead.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function Thead(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, props.children);
+}
+
+Thead.propTypes = {
+  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node
+};
+/* harmony default export */ __webpack_exports__["default"] = (Thead);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/table/Tr.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/components/table/Tr.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function Tr(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+    className: props.className
+  }, props.children);
+}
+
+Tr.propTypes = {
+  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node,
+  className: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+};
+/* harmony default export */ __webpack_exports__["default"] = (Tr);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/table/index.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/components/table/index.js ***!
+  \***********************************************************/
+/*! exports provided: Table, Tbody, Td, Th, Thead, Tr */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Table__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Table */ "./resources/js/components/components/table/Table.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Table", function() { return _Table__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _Tbody__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tbody */ "./resources/js/components/components/table/Tbody.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Tbody", function() { return _Tbody__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _Td__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Td */ "./resources/js/components/components/table/Td.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Td", function() { return _Td__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+/* harmony import */ var _Th__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Th */ "./resources/js/components/components/table/Th.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Th", function() { return _Th__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+/* harmony import */ var _Thead__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Thead */ "./resources/js/components/components/table/Thead.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Thead", function() { return _Thead__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+
+/* harmony import */ var _Tr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Tr */ "./resources/js/components/components/table/Tr.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Tr", function() { return _Tr__WEBPACK_IMPORTED_MODULE_5__["default"]; });
+
+
+
+
+
+
+
+
 
 /***/ }),
 
@@ -72915,97 +73199,33 @@ var AuthContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])();
 
 /***/ }),
 
-/***/ "./resources/js/components/forms/AdminJadwalFilterForm.js":
-/*!****************************************************************!*\
-  !*** ./resources/js/components/forms/AdminJadwalFilterForm.js ***!
-  \****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./resources/js/components/custom.css":
+/*!********************************************!*\
+  !*** ./resources/js/components/custom.css ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/forms/FormGroup */ "./resources/js/components/components/forms/FormGroup.js");
-/* harmony import */ var _components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/forms/InputSelect */ "./resources/js/components/components/forms/InputSelect.js");
-/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/Button */ "./resources/js/components/components/Button.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/postcss-loader/src??ref--6-2!./custom.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/js/components/custom.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
 
 
 
+var options = {"hmr":true}
 
+options.transform = transform
+options.insertInto = undefined;
 
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
-function AdminJadwalFilterForm(props) {
-  var semester = props.semester,
-      tahun = props.tahun,
-      form = props.form,
-      kelas = props.kelas,
-      namaKelas = props.namaKelas;
-  var openJadwalModalHandler = props.openJadwalModalHandler,
-      tahunChangeHandler = props.tahunChangeHandler,
-      submitHandler = props.submitHandler,
-      semesterChangeHandler = props.semesterChangeHandler,
-      kelasChangeHandler = props.kelasChangeHandler;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    onSubmit: submitHandler
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    name: "tahun",
-    onChange: tahunChangeHandler
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: ""
-  }, "Pilih Tahun"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: 2016
-  }, "2016"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: 2017
-  }, "2017"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: 2018
-  }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: 2019
-  }, "2019"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    value: semester,
-    onChange: semesterChangeHandler
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: ""
-  }, "Pilih Semester"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: 1
-  }, "Ganjil"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: 2
-  }, "Genap"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    name: "kelas_id",
-    value: form.kelas_id,
-    onChange: kelasChangeHandler
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: ""
-  }, "Pilih Kelas"), kelas.map(function (k) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-      key: k.kelas_id,
-      value: k.kelas_id
-    }, k.nama);
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    type: "button",
-    onClick: openJadwalModalHandler,
-    text: "Tambah Jadwal",
-    disabled: tahun === "" || semester === "" || namaKelas === ""
-  }))));
-}
+if(content.locals) module.exports = content.locals;
 
-AdminJadwalFilterForm.propTypes = {
-  semester: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number,
-  tahun: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number,
-  form: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
-  kelas: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array,
-  namaKelas: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
-  openJadwalModalHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
-  tahunChangeHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
-  submitHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
-  semesterChangeHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
-  kelasChangeHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func
-};
-/* harmony default export */ __webpack_exports__["default"] = (AdminJadwalFilterForm);
+if(false) {}
 
 /***/ }),
 
@@ -73117,6 +73337,101 @@ BeritaForm.propTypes = {
 
 /***/ }),
 
+/***/ "./resources/js/components/forms/JadwalFilterFormAdmin.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/forms/JadwalFilterFormAdmin.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/forms/FormGroup */ "./resources/js/components/components/forms/FormGroup.js");
+/* harmony import */ var _components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/forms/InputSelect */ "./resources/js/components/components/forms/InputSelect.js");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/Button */ "./resources/js/components/components/Button.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+
+function AdminJadwalFilterForm(props) {
+  var semester = props.semester,
+      tahun = props.tahun,
+      form = props.form,
+      kelas = props.kelas,
+      namaKelas = props.namaKelas;
+  var openJadwalModalHandler = props.openJadwalModalHandler,
+      tahunChangeHandler = props.tahunChangeHandler,
+      submitHandler = props.submitHandler,
+      semesterChangeHandler = props.semesterChangeHandler,
+      kelasChangeHandler = props.kelasChangeHandler;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    onSubmit: submitHandler
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "sm:flex"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    name: "tahun",
+    onChange: tahunChangeHandler
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 0
+  }, "Pilih Tahun"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 2016
+  }, "2016"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 2017
+  }, "2017"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 2018
+  }, "2018"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 2019
+  }, "2019"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    name: "semester",
+    value: semester,
+    onChange: semesterChangeHandler
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 0
+  }, "Pilih Semester"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 1
+  }, "Ganjil"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: 2
+  }, "Genap"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    name: "kelas_id",
+    value: form.kelas_id,
+    onChange: kelasChangeHandler
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: ""
+  }, "Pilih Kelas"), kelas.map(function (k) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      key: k.kelas_id,
+      value: k.kelas_id
+    }, k.nama);
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    type: "button",
+    onClick: openJadwalModalHandler,
+    text: "Tambah Jadwal",
+    disabled: tahun === "" || semester === "" || namaKelas === ""
+  }))));
+}
+
+AdminJadwalFilterForm.propTypes = {
+  semester: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number,
+  tahun: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number,
+  form: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+  kelas: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array,
+  namaKelas: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+  openJadwalModalHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+  tahunChangeHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+  submitHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+  semesterChangeHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+  kelasChangeHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func
+};
+/* harmony default export */ __webpack_exports__["default"] = (AdminJadwalFilterForm);
+
+/***/ }),
+
 /***/ "./resources/js/components/forms/JadwalForm.js":
 /*!*****************************************************!*\
   !*** ./resources/js/components/forms/JadwalForm.js ***!
@@ -73155,7 +73470,7 @@ function JadwalForm(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onSubmit: submitHandler
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex flex-wrap"
+    className: "sm:flex"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
     name: "hari_id",
     onChange: changeHandler
@@ -73180,7 +73495,7 @@ function JadwalForm(props) {
       value: w.id
     }, w.mulai, " - ", w.selesai);
   })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex flex-wrap"
+    className: "sm:flex"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
     name: "mata_kuliah_id",
     onChange: changeHandler,
@@ -73213,7 +73528,7 @@ function JadwalForm(props) {
       className: "mt-2"
     }, key + 1, ". ", s.nama);
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex"
+    className: "sm:flex"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_1__["default"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
     type: "submit",
     text: "Tambah Jadwal"
@@ -73233,7 +73548,7 @@ JadwalForm.propTypes = {
   ruangan: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array,
   form: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
   selectedDosen: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array,
-  errors: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+  errors: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array,
   changeHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
   submitHandler: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
   teacherModalHandleOpen: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func
@@ -73465,6 +73780,141 @@ _serviceWorker__WEBPACK_IMPORTED_MODULE_4__["unregister"]();
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/Admin/AdminAgenda/AdminAgenda.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/pages/Admin/AdminAgenda/AdminAgenda.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_AdminMain__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/AdminMain */ "./resources/js/components/components/AdminMain.js");
+/* harmony import */ var _components_Modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/Modal */ "./resources/js/components/components/Modal.js");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/Button */ "./resources/js/components/components/Button.js");
+/* harmony import */ var _forms_BeritaForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/forms/BeritaForm */ "./resources/js/components/forms/BeritaForm.js");
+/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Table */ "./resources/js/components/pages/Admin/AdminAgenda/components/Table.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _helper_generateUrl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/helper/generateUrl */ "./resources/js/components/helper/generateUrl.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+function AdminBerita() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      open = _useState2[0],
+      setOpen = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
+      _useState4 = _slicedToArray(_useState3, 2),
+      agenda = _useState4[0],
+      setAgenda = _useState4[1];
+
+  function fetchAgenda() {
+    axios__WEBPACK_IMPORTED_MODULE_6___default.a.get(Object(_helper_generateUrl__WEBPACK_IMPORTED_MODULE_7__["default"])('agenda')).then(function (res) {
+      setAgenda(res.data);
+    });
+  }
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchAgenda();
+  }, []);
+
+  var handleOpen = function handleOpen() {
+    setOpen(true);
+  };
+
+  var handleClose = function handleClose() {
+    setOpen(false);
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AdminMain__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    title: "Agenda"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    onClick: handleOpen,
+    text: "Tambah Agenda"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Table__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    data: agenda
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Modal__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    isOpen: open,
+    handleOpen: handleOpen,
+    handleClose: handleClose,
+    title: "Tambah Berita"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_BeritaForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    closeModal: handleClose
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (AdminBerita);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/Admin/AdminAgenda/components/Table.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/pages/Admin/AdminAgenda/components/Table.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_PaginationButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/PaginationButton */ "./resources/js/components/components/PaginationButton.js");
+/* harmony import */ var _components_table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/table */ "./resources/js/components/components/table/index.js");
+
+
+
+
+
+function AgendaTable(props) {
+  var data = props.data;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "border mt-3 bg-white overflow-auto max-w-xs"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "p-3 flex justify-end"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PaginationButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    type: "left"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PaginationButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    type: "right"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_table__WEBPACK_IMPORTED_MODULE_3__["Table"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_table__WEBPACK_IMPORTED_MODULE_3__["Thead"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_table__WEBPACK_IMPORTED_MODULE_3__["Tr"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_table__WEBPACK_IMPORTED_MODULE_3__["Th"], null, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_table__WEBPACK_IMPORTED_MODULE_3__["Th"], null, "Nama"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_table__WEBPACK_IMPORTED_MODULE_3__["Th"], null, "Tanggal"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_table__WEBPACK_IMPORTED_MODULE_3__["Th"], null, "Option"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_table__WEBPACK_IMPORTED_MODULE_3__["Tbody"], null, data.data && data.data.map(function (d, index) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_table__WEBPACK_IMPORTED_MODULE_3__["Tr"], {
+      key: d.id,
+      className: "hover:bg-gray-400 ".concat(index % 2 === 0 && 'bg-gray-300')
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_table__WEBPACK_IMPORTED_MODULE_3__["Td"], null, data.current_page * (index + 1)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_table__WEBPACK_IMPORTED_MODULE_3__["Td"], null, d.nama), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_table__WEBPACK_IMPORTED_MODULE_3__["Td"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "inline-block px-3 font-bold text-yellow-800 rounded-full py-1 text-sm bg-yellow-200"
+    }, d.tanggal)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_table__WEBPACK_IMPORTED_MODULE_3__["Td"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "text-red-500 fas fa-trash"
+    })));
+  }))));
+}
+
+AgendaTable.propTypes = {
+  data: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object
+};
+/* harmony default export */ __webpack_exports__["default"] = (AgendaTable);
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/Admin/AdminBerita/AdminBerita.js":
 /*!************************************************************************!*\
   !*** ./resources/js/components/pages/Admin/AdminBerita/AdminBerita.js ***!
@@ -73571,7 +74021,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SelectedJadwal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/SelectedJadwal */ "./resources/js/components/pages/Admin/AdminJadwal/components/SelectedJadwal.js");
 /* harmony import */ var _components_forms_FormGroup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/components/forms/FormGroup */ "./resources/js/components/components/forms/FormGroup.js");
 /* harmony import */ var _components_forms_InputSelect__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/components/forms/InputSelect */ "./resources/js/components/components/forms/InputSelect.js");
-/* harmony import */ var _forms_AdminJadwalFilterForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/forms/AdminJadwalFilterForm */ "./resources/js/components/forms/AdminJadwalFilterForm.js");
+/* harmony import */ var _forms_JadwalFilterFormAdmin__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/forms/JadwalFilterFormAdmin */ "./resources/js/components/forms/JadwalFilterFormAdmin.js");
 /* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/components/Button */ "./resources/js/components/components/Button.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_11__);
@@ -73618,7 +74068,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function AdminDashboard() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
       _useState2 = _slicedToArray(_useState, 2),
       semester = _useState2[0],
       setSemester = _useState2[1];
@@ -73704,7 +74154,7 @@ function AdminDashboard() {
       open2 = _useState20[0],
       setOpen2 = _useState20[1];
 
-  var _useState21 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
+  var _useState21 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState22 = _slicedToArray(_useState21, 2),
       errors = _useState22[0],
       setErrors = _useState22[1];
@@ -73713,14 +74163,20 @@ function AdminDashboard() {
       access_token = _useContext.access_token;
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    document.title = 'Admin | Jadwal';
+  }, []);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (form.tahun !== '') {
       refetch();
     }
+
+    setKelas([]);
+    setSemester(0);
   }, [tahun]);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     var k = [];
 
-    if (tahun !== '' && semester !== '') {
+    if (tahun !== 0 && semester !== 0) {
       data.forEach(function (d) {
         var selisih_tahun = tahun - d.tahun_angkatan + 1;
 
@@ -73776,15 +74232,13 @@ function AdminDashboard() {
   }
 
   function tahunChangeHandler(e) {
-    setTahun(e.target.value);
-    setKelas([]);
-    setSemester('');
+    setTahun(parseInt(e.target.value));
   }
 
   function semesterChangeHandler(e) {
-    setSemester(e.target.value);
+    setSemester(parseInt(e.target.value));
 
-    if (e.target.value !== "") {
+    if (e.target.value !== 0) {
       setForm(function (f) {
         return _objectSpread({}, f, {
           kelas_id: '',
@@ -73872,7 +74326,7 @@ function AdminDashboard() {
     }).then(function () {
       refetch();
       sweetalert2__WEBPACK_IMPORTED_MODULE_15___default.a.fire('Berhasil!', 'Jadwal berhasil ditambahkan', 'success');
-      handleClose();
+      closeJadwalModalHandler();
     })["catch"](function (err) {
       if (err.response.status === 422) setErrors(err.response.data.errors);
 
@@ -73881,8 +74335,6 @@ function AdminDashboard() {
       }
 
       ;
-    }).then(function () {
-      setSelectedJadwal(jadwal[semester][kodeProdi][namaKelas]);
     });
   }
 
@@ -73911,8 +74363,8 @@ function AdminDashboard() {
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AdminMain__WEBPACK_IMPORTED_MODULE_1__["default"], {
     title: "Jadwal"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_AdminJadwalFilterForm__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    semsester: semester,
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_forms_JadwalFilterFormAdmin__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    semester: semester,
     kelas: kelas,
     form: form,
     openJadwalModalHandler: openJadwalModalHandler,
@@ -73922,6 +74374,8 @@ function AdminDashboard() {
     submitHandler: submitHandler,
     kelasChangeHandler: kelasChangeHandler,
     tahun: tahun
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "border-t border-gray-400 my-6"
   }), loading ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Loading__WEBPACK_IMPORTED_MODULE_3__["default"], null) : tahun === "" || semester === "" || namaKelas === "" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "h-64 flex items-center justify-center"
   }, "Silahkan Pilih Tahun, Semester, Dan Nama Kelas Lebih dulu") : Object.keys(getSelectedJadwal()).length ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_SelectedJadwal__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -73947,6 +74401,7 @@ function AdminDashboard() {
       return setOpen2(true);
     }
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Modal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    title: "Tambah Dosen Pengajar",
     isOpen: open2,
     handleClose: function handleClose() {
       return setOpen2(false);
@@ -74062,7 +74517,7 @@ function SelectedJadwal(props) {
   var selectedJadwal = props.selectedJadwal;
   var deleteClickHandler = props.deleteClickHandler;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex flex-wrap"
+    className: "sm:flex flex-wrap"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Hari, {
     hari: selectedJadwal,
     deleteClickHandler: deleteClickHandler
@@ -74133,11 +74588,12 @@ function Login(props) {
       signin = _useContext.signin;
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    document.title = 'Login';
-
-    if (authenticated) {
-      if (role === 'admin') props.history.push('/a/jadwal');else props.history.push('/t/modul');
-    }
+    console.log(authenticated);
+    document.title = 'Login'; // if(authenticated) {
+    // 	if(role === 'admin')
+    // 		props.history.push('/a/jadwal');
+    // 	else props.history.push('/t/modul');
+    // }
   }, []);
 
   function submitHandler(e) {
@@ -74150,6 +74606,14 @@ function Login(props) {
       if (res.data.role === 'admin') props.history.push('/a/jadwal');else props.history.push('/t/modul');
     })["catch"](function (err) {
       console.log(err);
+    });
+  }
+
+  if (authenticated) {
+    if (role === 'admin') return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Redirect"], {
+      to: "/a/jadwal"
+    });else return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Redirect"], {
+      to: "/t/modul"
     });
   }
 
@@ -74762,28 +75226,54 @@ function Modul() {
       page = _useState10[0],
       setPage = _useState10[1];
 
+  var source = axios__WEBPACK_IMPORTED_MODULE_2__["CancelToken"].source();
+  var initialMount = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(true);
+  var initialMount2 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(true);
+
   function fetchModul() {
     setLoading(true);
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(Object(_helper_generateUrl__WEBPACK_IMPORTED_MODULE_3__["default"])('modul?page=' + page + '&filter=' + JSON.stringify(filter))).then(function (_ref) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(Object(_helper_generateUrl__WEBPACK_IMPORTED_MODULE_3__["default"])('modul?page=' + page + '&filter=' + JSON.stringify(filter)), {
+      cancelToken: source.token
+    }).then(function (_ref) {
       var data = _ref.data;
       setModul(data);
       setLoading(false);
+    })["catch"](function (thrown) {
+      if (axios__WEBPACK_IMPORTED_MODULE_2___default.a.isCancel(thrown)) {
+        console.log('canceled');
+      } else {
+        setLoading(false);
+      }
     });
   }
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(Object(_helper_generateUrl__WEBPACK_IMPORTED_MODULE_3__["default"])('mata-kuliah')).then(function (_ref2) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(Object(_helper_generateUrl__WEBPACK_IMPORTED_MODULE_3__["default"])('mata-kuliah'), {
+      cancelToken: source.token
+    }).then(function (_ref2) {
       var data = _ref2.data;
       setMataKuliah(data);
+    })["catch"](function (thrown) {
+      if (axios__WEBPACK_IMPORTED_MODULE_2___default.a.isCancel(thrown)) {
+        console.log('canceled');
+      } else {}
     });
     fetchModul(page);
   }, []);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    setPage(1);
-    fetchModul();
+    if (initialMount.current) {
+      initialMount.current = false;
+    } else {
+      setPage(1);
+      fetchModul();
+    }
   }, [filter]);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    fetchModul();
+    if (initialMount2.current) {
+      initialMount2.current = false;
+    } else {
+      fetchModul();
+    }
   }, [page]);
 
   function changeHandler(e) {
@@ -74889,7 +75379,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Admin_AdminDashboard_AdminDashboard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/Admin/AdminDashboard/AdminDashboard */ "./resources/js/components/pages/Admin/AdminDashboard/AdminDashboard.js");
 /* harmony import */ var _pages_Admin_AdminBerita_AdminBerita__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/Admin/AdminBerita/AdminBerita */ "./resources/js/components/pages/Admin/AdminBerita/AdminBerita.js");
 /* harmony import */ var _pages_Admin_AdminJadwal_AdminJadwal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/Admin/AdminJadwal/AdminJadwal */ "./resources/js/components/pages/Admin/AdminJadwal/AdminJadwal.js");
-/* harmony import */ var _pages_Dosen_DosenModul_DosenModul__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/Dosen/DosenModul/DosenModul */ "./resources/js/components/pages/Dosen/DosenModul/DosenModul.js");
+/* harmony import */ var _pages_Admin_AdminAgenda_AdminAgenda__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/Admin/AdminAgenda/AdminAgenda */ "./resources/js/components/pages/Admin/AdminAgenda/AdminAgenda.js");
+/* harmony import */ var _pages_Dosen_DosenModul_DosenModul__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/Dosen/DosenModul/DosenModul */ "./resources/js/components/pages/Dosen/DosenModul/DosenModul.js");
+
 
 
 
@@ -74933,8 +75425,11 @@ function Routes() {
     path: "/a/jadwal",
     component: Object(_hoc_withAuth__WEBPACK_IMPORTED_MODULE_2__["default"])(_pages_Admin_AdminJadwal_AdminJadwal__WEBPACK_IMPORTED_MODULE_10__["default"], 'admin')
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/a/agenda",
+    component: Object(_hoc_withAuth__WEBPACK_IMPORTED_MODULE_2__["default"])(_pages_Admin_AdminAgenda_AdminAgenda__WEBPACK_IMPORTED_MODULE_11__["default"], 'admin')
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/t/modul",
-    component: Object(_hoc_withAuth__WEBPACK_IMPORTED_MODULE_2__["default"])(_pages_Dosen_DosenModul_DosenModul__WEBPACK_IMPORTED_MODULE_11__["default"], 'dosen')
+    component: Object(_hoc_withAuth__WEBPACK_IMPORTED_MODULE_2__["default"])(_pages_Dosen_DosenModul_DosenModul__WEBPACK_IMPORTED_MODULE_12__["default"], 'dosen')
   }));
 }
 

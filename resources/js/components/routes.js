@@ -11,6 +11,7 @@ import Modul from './pages/Modul/Modul';
 import AdminDashboard from './pages/Admin/AdminDashboard/AdminDashboard';
 import AdminBerita from './pages/Admin/AdminBerita/AdminBerita';
 import AdminJadwal from './pages/Admin/AdminJadwal/AdminJadwal';
+import AdminAgenda from './pages/Admin/AdminAgenda/AdminAgenda';
 
 import DosenModul from './pages/Dosen/DosenModul/DosenModul';
 
@@ -27,6 +28,7 @@ function Routes() {
 			<Route path='/a/dashboard' component={ AdminDashboard } />
 			<Route path='/a/berita' component={ AdminBerita } />
 			<Route path='/a/jadwal' component={ withAuth(AdminJadwal, 'admin') } />
+			<Route path='/a/agenda' component={ withAuth(AdminAgenda, 'admin') } />
 
 			<Route path='/t/modul' component={ withAuth(DosenModul, 'dosen') } />
 		</Switch>

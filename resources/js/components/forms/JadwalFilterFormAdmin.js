@@ -9,10 +9,10 @@ function AdminJadwalFilterForm(props) {
 	const { openJadwalModalHandler, tahunChangeHandler, submitHandler, semesterChangeHandler, kelasChangeHandler } = props;
 	return (
 		<form onSubmit={ submitHandler }>
-			<div className="flex">
+			<div className="sm:flex">
 				<FormGroup>
 					<InputSelect name="tahun" onChange={ tahunChangeHandler }>
-						<option value="">Pilih Tahun</option>
+						<option value={ 0 }>Pilih Tahun</option>
 						<option value={ 2016 }>2016</option>
 						<option value={ 2017 }>2017</option>
 						<option value={ 2018 }>2018</option>
@@ -20,8 +20,8 @@ function AdminJadwalFilterForm(props) {
 					</InputSelect>
 				</FormGroup>
 				<FormGroup>
-					<InputSelect value={ semester } onChange={ semesterChangeHandler }>
-						<option value="">Pilih Semester</option>
+					<InputSelect name="semester" value={ semester } onChange={ semesterChangeHandler }>
+						<option value={ 0 }>Pilih Semester</option>
 						<option value={ 1 }>Ganjil</option>
 						<option value={ 2 }>Genap</option>
 					</InputSelect>

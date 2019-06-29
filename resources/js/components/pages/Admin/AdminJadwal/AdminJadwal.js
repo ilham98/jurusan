@@ -7,7 +7,7 @@ import DosenDetail  from './components/DosenDetail';
 import SelectedJadwal from './components/SelectedJadwal';
 import FormGroup from '@/components/forms/FormGroup';
 import InputSelect from '@/components/forms/InputSelect';
-import AdminJadwalFilterForm from '@/forms/AdminJadwalFilterForm';
+import JadwalFilterFormAdmin from '@/forms/JadwalFilterFormAdmin';
 import Button from '@/components/Button';
 import axios from 'axios';
 import { BASE_API_URL } from '@/config';
@@ -16,7 +16,7 @@ import JadwalForm from '@/forms/JadwalForm';
 import Swal from 'sweetalert2';
 
 function AdminDashboard() {
-	const [semester, setSemester] = useState("");
+	const [semester, setSemester] = useState(0);
 	const { data } = useAxios({ url: 'kelas' });
 	const [form, setForm] = useState({ kelas_id:'', semester:'', dosenIds:[] });
 	const [tahun, setTahun] = useState(2016);
@@ -32,19 +32,24 @@ function AdminDashboard() {
 	const [kodeProdi, setKodeProdi] = useState('');
 	const [open, setOpen] = useState(false);
 	const [open2, setOpen2] = useState(false);
-	const [ errors, setErrors ] = useState({});
+	const [ errors, setErrors ] = useState([]);
 	const { access_token } = useContext(AuthContext);
+
+	useEffect(() => {
+		document.title = 'Admin | Jadwal';
+	}, []);
 
 	useEffect(() => {
 		if(form.tahun !== '') {
 			refetch();
 		}
-
+		setKelas([]);
+		setSemester(0);
 	}, [tahun])
 
 	useEffect(() => {
 		const k = [];
-		if(tahun !== '' && semester !== '') {
+		if(tahun !== 0 && semester !== 0) {
 			data.forEach(function(d) {
 				const selisih_tahun = tahun-d.tahun_angkatan+1;
 				if(selisih_tahun >= 1) {
@@ -86,14 +91,12 @@ function AdminDashboard() {
 	}
 
 	function tahunChangeHandler(e) {
-		setTahun(e.target.value);
-		setKelas([]);
-		setSemester('');
+		setTahun(parseInt(e.target.value));
 	}
 
 	function semesterChangeHandler(e) {
-		setSemester(e.target.value);
-		if(e.target.value !== "") {
+		setSemester(parseInt(e.target.value));
+		if(e.target.value !== 0) {
 			setForm(f => ({ ...f, kelas_id: '', semester: '' }));
 		} else {
 			setKelas([]);
@@ -154,7 +157,7 @@ function AdminDashboard() {
 				  'Jadwal berhasil ditambahkan',
 				  'success'
 				);
-				handleClose();
+				closeJadwalModalHandler();
 			}).catch(err =>	 {
 				if(err.response.status === 422)
 				setErrors(err.response.data.errors);
@@ -165,8 +168,6 @@ function AdminDashboard() {
 					  'error'
 					);
 				};
-			}).then(() => {
-				setSelectedJadwal(jadwal[semester][kodeProdi][namaKelas]);
 			})
 	}
 
@@ -196,8 +197,8 @@ function AdminDashboard() {
 
 	return (
 		<AdminMain title='Jadwal'>
-			<AdminJadwalFilterForm  
-				semsester={ semester }
+			<JadwalFilterFormAdmin  
+				semester={ semester }
 				kelas= {kelas}
 				form={ form }
 				openJadwalModalHandler={ openJadwalModalHandler }
@@ -208,6 +209,7 @@ function AdminDashboard() {
 				kelasChangeHandler={ kelasChangeHandler }
 				tahun={ tahun }
 			/>
+			<div className='border-t border-gray-400 my-6'></div>
 			{
 				loading ?
 					<Loading /> :
@@ -242,6 +244,7 @@ function AdminDashboard() {
 				/>
 			</Modal>
 			<Modal 
+				title='Tambah Dosen Pengajar'
 				isOpen={open2}
 				handleClose={() => setOpen2(false)}
 			>

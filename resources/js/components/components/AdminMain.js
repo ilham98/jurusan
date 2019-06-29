@@ -23,10 +23,14 @@ function AdminMain(props) {
 
 	const [open, setOpen] = useState(false);
 
+	function toggle() {
+		setOpen(o => !o);
+	}
+
 	const { signout } = useContext(AuthContext);
 	return (
 		<div className='flex'>
-			<div className='bg-white hidden md:block h-screen fixed md:static flex-1 w-full' style={{ minWidth: 250 }}>
+			<div className={ `bg-white shadow-lg ${ !open && 'hidden' } h-screen ${ !open ? 'md:block' : 'md:hidden' } fixed md:static flex-1 w-full`} style={{ minWidth: 250 }}>
 				<div className='my-5 mx-10'>
 					Welcome Admin
 				</div>
@@ -34,14 +38,20 @@ function AdminMain(props) {
 					<Item name='Dashboard' to='/a/dashboard' icon='fas fa-tachometer-alt'/>
 					<Item name='Berita' to='/a/berita' icon='fas fa-newspaper'/>
 					<Item name='Jadwal' to='/a/jadwal' icon='fas fa-calendar' />
-					<button onClick={ () => signout() }>Logout</button>
+					<Item name='Agenda' to='/a/agenda' icon='fas fa-calendar' />
+					<Item name='Visi & Misi' to='/a/visi-misi' icon='fas fa-calendar' />
+					<div className='flex justify-center mt-5'>
+						<button onClick={ () => signout() } className='border rounded border-orange-500 text-orange-600 px-2 py-1'>
+							Logout <i className='fas fa-sign-out-alt' />
+						</button>
+					</div>
 				</div>
 			</div>
-			<div className={ `flex-4 ${ open && 'mantap' }` }>
-				<div><button><i className='p-3 fas fa-bars' onClick={ () => setOpen(true) } /></button></div>
-				<div className='p-5 bg-gray-300 shadow-lg agenda shadow-lg'>
-					<div className='text-2xl p-10 bg-blue-500 text-white'>{ props.title }</div>
-					<div className='bg-white px-10 py-10' style={{ maxHeight: '75vh', overflowY: 'scroll' }}>
+			<div className='flex-4'>
+				<div><button><i className='p-3 fas fa-bars' onClick={ toggle } /></button></div>
+				<div className='bg-gray-300 shadow'>
+					<div className='text-2xl px-5 py-3 bg-blue-400 text-white'>{ props.title }</div>
+					<div className='bg-gray-100 p-2 md:px-10 md:py-10' style={{ height: 'calc(100vh - 100px)', overflowY: 'scroll' }}>
 						{ props.children }
 					</div>
 				</div>
@@ -52,7 +62,7 @@ function AdminMain(props) {
 
 AdminMain.propTypes = {
 	title: PropTypes.string,
-	children: PropTypes.array
+	children: PropTypes.node.isRequired
 }
 
 export default AdminMain;

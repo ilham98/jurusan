@@ -18,7 +18,7 @@ function FetchedData(props) {
 FetchedData.propTypes = {
 	loading: PropTypes.bool,
 	error: PropTypes.bool,
-	children: PropTypes.array
+	children: PropTypes.object
 }
 
 export default FetchedData;
