@@ -38,7 +38,10 @@ function AdminMain(props) {
 					<Item name='Dashboard' to='/a/dashboard' icon='fas fa-tachometer-alt'/>
 					<Item name='Berita' to='/a/berita' icon='fas fa-newspaper'/>
 					<Item name='Jadwal' to='/a/jadwal' icon='fas fa-calendar' />
+					<Item name='Waktu' to='/a/waktu' icon='fas fa-clock' />
 					<Item name='Agenda' to='/a/agenda' icon='fas fa-calendar' />
+					<Item name='Mata Kuliah' to='/a/mata-kuliah' icon='fas fa-book' />
+					<Item name='Dosen' to='/a/dosen' icon='fas fa-users' />
 					<Item name='Visi & Misi' to='/a/visi-misi' icon='fas fa-calendar' />
 					<div className='flex justify-center mt-5'>
 						<button onClick={ () => signout() } className='border rounded border-orange-500 text-orange-600 px-2 py-1'>

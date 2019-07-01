@@ -37,6 +37,8 @@
         "draft-js": "^0.10.5",
         "js-cookie": "^2.2.0",
         "laravel-mix-eslint-config": "^0.1.7",
+        "moment": "^2.24.0",
+        "rc-time-picker": "^3.7.1",
         "react-router-dom": "^5.0.1",
         "react-spinners": "^0.5.4",
         "sweetalert2": "^8.13.0"

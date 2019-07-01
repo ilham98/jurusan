@@ -12,6 +12,9 @@ import AdminDashboard from './pages/Admin/AdminDashboard/AdminDashboard';
 import AdminBerita from './pages/Admin/AdminBerita/AdminBerita';
 import AdminJadwal from './pages/Admin/AdminJadwal/AdminJadwal';
 import AdminAgenda from './pages/Admin/AdminAgenda/AdminAgenda';
+import AdminWaktu from './pages/Admin/AdminWaktu/AdminWaktu';
+import AdminMataKuliah from './pages/Admin/AdminMataKuliah/AdminMataKuliah';
+import AdminDosen from './pages/Admin/AdminDosen/AdminDosen';
 
 import DosenModul from './pages/Dosen/DosenModul/DosenModul';
 
@@ -29,6 +32,9 @@ function Routes() {
 			<Route path='/a/berita' component={ AdminBerita } />
 			<Route path='/a/jadwal' component={ withAuth(AdminJadwal, 'admin') } />
 			<Route path='/a/agenda' component={ withAuth(AdminAgenda, 'admin') } />
+			<Route path='/a/waktu' component={ withAuth(AdminWaktu, 'admin') } />
+			<Route path='/a/mata-kuliah' component={ withAuth(AdminMataKuliah, 'admin') } />
+			<Route path='/a/dosen' component={ withAuth(AdminDosen, 'admin') } />
 
 			<Route path='/t/modul' component={ withAuth(DosenModul, 'dosen') } />
 		</Switch>

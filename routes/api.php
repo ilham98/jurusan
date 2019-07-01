@@ -32,11 +32,19 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('dosen/{nidn}/modul', 'API\DosenModulController@index');
     Route::get('dosen/{nidn}/jadwal', 'API\DosenJadwalController@index');
     Route::get('agenda', 'API\AgendaController@index');
+    Route::get('waktu', 'API\WaktuController@index');
+    Route::get('mata-kuliah', 'API\MataKuliahController@index');
+    Route::get('jabatan-fungsional', 'API\JabatanFungsionalController@index');
 });
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:admin'], function () {
 	Route::post('jadwal', 'API\JadwalController@store');
     Route::delete('jadwal/{id}', 'API\JadwalController@destroy');
+    Route::resource('agenda', 'API\AgendaController')->except('index');
+    Route::resource('waktu', 'API\WaktuController')->except('index');
+    Route::resource('mata-kuliah', 'API\MataKuliahController')->except('index');
+    Route::resource('jabatan-fungsional', 'API\JabatanFungsionalController')->except('index');
+    Route::resource('dosen', 'API\DosenController')->except('index');
 });
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:dosen'], function () {

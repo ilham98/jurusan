@@ -2,52 +2,53 @@ import React, { useState, useEffect, useRef } from 'react';
 import AdminMain from '@/components/AdminMain';
 import Modal from '@/components/Modal';
 import Button from '@/components/Button';
-import AgendaForm from '@/forms/AgendaForm';
-import AgendaTable from '@/tables/AgendaTable';
+import WaktuForm from '@/forms/WaktuForm';
+import WaktuTable from '@/tables/WaktuTable';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import generateUrl from '@/helper/generateUrl';
 import { FormGroup } from '@/components/forms';
 
-function AdminBerita() {
+function AdminWaktu() {
 	const formInit = {
-		nama: '',
-		tanggal: '',
-		deskripsi: ''
+		hari_id: '',
+		mulai: '',
+		selesai: ''
 	};
 
 	const [ open, setOpen ] = useState(false);
-	const [ agenda, setAgenda ] = useState({ data: [] });
+	const [ waktu, setWaktu ] = useState([]);
 	const [ page, setPage ] = useState(1);
 	const initialMount = useRef(true);
 	const [ loading, setLoading ] = useState(false);
 	const [ form, setForm ] = useState(formInit);
 	const [ editMode, setEditMode ] = useState(false);
+	const [ hari, setHari ] = useState([]);
 
 	useEffect(() => {
-		document.title = 'Admin | Agenda';
+		document.title = 'Admin | Waktu';
 	})
 
-	function fetchAgenda() {
+	function fetchWaktu() {
 		setLoading(true);
-		axios.get(generateUrl('agenda?page='+page))
+		axios.get(generateUrl('waktu'))
 			.then(res => {
-				setAgenda(res.data);
+				setWaktu(res.data);
 				setLoading(false);
 			});
 	}
 
-	useEffect(() => {
-		fetchAgenda();
-	}, []);
+	function fetchHari() {
+		axios.get(generateUrl('hari'))
+			.then(res => {
+				setHari(res.data);
+			});
+	}
 
 	useEffect(() => {
-		if(initialMount.current) {
-			initialMount.current = false
-		} else {
-			fetchAgenda();
-		}
-	}, [page]);
+		fetchWaktu();
+		fetchHari();
+	}, []);
 
 	const handleOpen = () => {
 		console.log(handleOpen);
@@ -58,14 +59,6 @@ function AdminBerita() {
 
 	const handleClose = () => {
 		setOpen(false);
-	}
-
-	function nextClickHandler() {
-		setPage(p => p + 1);
-	}
-
-	function prevClickHandler() {
-		setPage(p => p - 1);
 	}
 
 	function deleteClickHandler($id) {
@@ -79,9 +72,9 @@ function AdminBerita() {
 		  confirmButtonText: 'Yes, delete it!'
 		}).then((result) => {
 		  if (result.value) {
-		  	axios.delete(generateUrl('agenda/'+$id))
+		  	axios.delete(generateUrl('waktu/'+$id))
 			.then(res => {
-				fetchAgenda();
+				fetchWaktu();
 				Swal.fire(
 			      'Deleted!',
 			      'Your file has been deleted.',
@@ -98,6 +91,16 @@ function AdminBerita() {
 		setForm(s => ({ ...s, [e.target.name]:e.target.value }));
 	}
 
+	const handleMulaiChange = mulai => {
+		mulai = mulai.format('HH:mm:ss')
+    	setForm(s => ({ ...s, mulai:mulai }));
+  	}
+
+  	const handleSelesaiChange = selesai => {
+  		selesai.format('HH:mm:ss')
+    	setForm(s => ({ ...s, selesai:selesai }));
+  	}
+
 	function fillAndOpenFormModal(d) {
 		setEditMode(true);
 		setForm(d);
@@ -105,37 +108,37 @@ function AdminBerita() {
 	}
 
 	return (
-		<AdminMain title='Agenda'>
+		<AdminMain title='Waktu'>
 			<FormGroup align='right'>
-				<Button onClick={ handleOpen } text='Tambah Agenda' />
+				<Button onClick={ handleOpen } text='Tambah Waktu' />
 			</FormGroup>
 			<div>
-				<AgendaTable 
-					data={ agenda } 
-					nextClickHandler = { nextClickHandler }
-					prevClickHandler = { prevClickHandler }
+				<WaktuTable 
+					data={ waktu } 
 					loading = { loading }
 					fillAndOpenFormModal = { fillAndOpenFormModal }
 					deleteClickHandler = { deleteClickHandler }
-					fetchAgenda={ fetchAgenda } 
 				/>
 			</div>
 			<Modal 
 				isOpen={ open } 
 				handleOpen={ handleOpen }  
 				handleClose={ handleClose }
-				title='Tambah Agenda'
+				title='Tambah Waktu'
 			>
-				<AgendaForm 
-					editMode={ editMode }
+				<WaktuForm 
+					handleMulaiChange={ handleMulaiChange }
+					handleSelesaiChange={ handleSelesaiChange }
+					fetchWaktu={ fetchWaktu }
 					form={ form }
-					closeModal={ handleClose }
-					fetchAgenda={ fetchAgenda } 
+					editMode={ editMode }
 					handleChange={ handleChange }
+					hari={ hari }
+					handleClose={ handleClose }
 				/>
 			</Modal>
 		</AdminMain>
 	);
 }
 
-export default AdminBerita;
+export default AdminWaktu;

@@ -11,7 +11,7 @@ function FormGroup(props) {
 	}
 
 	return (
-		<div className={ `p-2 sm:p-3 ${ align() } flex-${flex}`}>
+		<div className={ `p-2 sm:p-3 ${ align() }`}>
 			{ props.children }
 		</div>
 	);
@@ -20,7 +20,7 @@ function FormGroup(props) {
 FormGroup.propTypes = {
 	flex: PropTypes.string,
 	align: PropTypes.string,
-	children: PropTypes.object	
+	children: PropTypes.node	
 }
 
 export default FormGroup;

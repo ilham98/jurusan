@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Waktu extends Model
 {
 	protected $table = 'waktu';
-    protected $fillable = [ 'nama' ];
+    protected $fillable = [ 'mulai', 'selesai', 'hari_id' ];
     public $timestamps = false;
 
     public function jadwal() {

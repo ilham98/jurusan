@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Agenda;
+use App\JabatanFungsional;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AgendaController extends Controller
+class JabatanFungsionalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        return Agenda::orderBy('id', 'desc')->paginate(30);
+        return JabatanFungsional::all();
     }
 
     /**
@@ -26,15 +26,7 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama' => 'required',
-            'tanggal' => 'required',
-            'deskripsi' => 'required'
-        ]);
-
-        $body = $request->all();
-        $agenda = Agenda::create($body);
-        return $agenda;
+        //
     }
 
     /**
@@ -57,16 +49,7 @@ class AgendaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nama' => 'required',
-            'tanggal' => 'required',
-            'deskripsi' => 'required'
-        ]);
-
-        $body = $request->all();
-        $agenda = Agenda::find($id);
-        $agenda->update($body);
-        return $agenda;
+        //
     }
 
     /**
@@ -77,7 +60,6 @@ class AgendaController extends Controller
      */
     public function destroy($id)
     {
-        $agenda = Agenda::destroy($id);
-        return $agenda;
+        //
     }
 }

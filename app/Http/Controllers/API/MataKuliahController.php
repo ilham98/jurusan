@@ -14,5 +14,32 @@ class MataKuliahController extends Controller {
 
         return $mata_kuliah;
     }
+
+    public function store(Request $request) {
+    	$request->validate([
+    		'nama' => 'required'
+    	]);
+
+    	$body = $request->all();
+    	$mata_kuliah = MataKuliah::create($body);
+
+    	return $mata_kuliah;
+    }
+
+    public function update(Request $request, $id) {
+    	$request->validate([
+    		'nama' => 'required'
+    	]);
+    	$body = $request->all();
+    	$mata_kuliah = MataKuliah::find($id);
+    	$mata_kuliah->update($body);
+    	return $mata_kuliah;
+    }
+
+    public function destroy($id) {
+    	$mata_kuliah = MataKuliah::find($id);
+    	$mata_kuliah->delete();
+    	return $mata_kuliah;
+    }
     
 }

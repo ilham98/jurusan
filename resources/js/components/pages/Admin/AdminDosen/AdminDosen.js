@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import AdminMain from '@/components/AdminMain';
 import Modal from '@/components/Modal';
 import Button from '@/components/Button';
-import AgendaForm from '@/forms/AgendaForm';
-import AgendaTable from '@/tables/AgendaTable';
+import DosenForm from '@/forms/DosenForm';
+import DosenTable from '@/tables/DosenTable';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import generateUrl from '@/helper/generateUrl';
@@ -11,41 +11,54 @@ import { FormGroup } from '@/components/forms';
 
 function AdminBerita() {
 	const formInit = {
+		nidn: '',
+		nip: '',
 		nama: '',
-		tanggal: '',
-		deskripsi: ''
+		no_telepon: '',
+		keahlian: '',
+		email: '',
+		jabatan_fungsional_id: ''
 	};
 
+	useEffect(() => {
+		document.title = 'Admin | Dosen';
+	})
+
 	const [ open, setOpen ] = useState(false);
-	const [ agenda, setAgenda ] = useState({ data: [] });
+	const [ dosen, setDosen ] = useState({ data: [] });
+	const [ jabatanFungsional, setJabatanFungsional ] = useState([]);
 	const [ page, setPage ] = useState(1);
 	const initialMount = useRef(true);
 	const [ loading, setLoading ] = useState(false);
 	const [ form, setForm ] = useState(formInit);
 	const [ editMode, setEditMode ] = useState(false);
 
-	useEffect(() => {
-		document.title = 'Admin | Agenda';
-	})
-
-	function fetchAgenda() {
+	function fetchDosen() {
 		setLoading(true);
-		axios.get(generateUrl('agenda?page='+page))
+		axios.get(generateUrl('dosen?paginate=20&page='+page))
 			.then(res => {
-				setAgenda(res.data);
+				setDosen(res.data);
 				setLoading(false);
 			});
 	}
 
+	function fetchJabatanFungsional() {
+		axios.get(generateUrl('jabatan-fungsional'))
+			.then(res => {
+				setJabatanFungsional(res.data);
+			});
+	}
+
 	useEffect(() => {
-		fetchAgenda();
+		fetchDosen();
+		fetchJabatanFungsional();
 	}, []);
 
 	useEffect(() => {
 		if(initialMount.current) {
 			initialMount.current = false
 		} else {
-			fetchAgenda();
+			fetchDosen();
 		}
 	}, [page]);
 
@@ -79,9 +92,9 @@ function AdminBerita() {
 		  confirmButtonText: 'Yes, delete it!'
 		}).then((result) => {
 		  if (result.value) {
-		  	axios.delete(generateUrl('agenda/'+$id))
+		  	axios.delete(generateUrl('dosen/'+$id))
 			.then(res => {
-				fetchAgenda();
+				fetchDosen();
 				Swal.fire(
 			      'Deleted!',
 			      'Your file has been deleted.',
@@ -105,32 +118,33 @@ function AdminBerita() {
 	}
 
 	return (
-		<AdminMain title='Agenda'>
+		<AdminMain title='Dosen'>
 			<FormGroup align='right'>
-				<Button onClick={ handleOpen } text='Tambah Agenda' />
+				<Button onClick={ handleOpen } text='Tambah Dosen' />
 			</FormGroup>
 			<div>
-				<AgendaTable 
-					data={ agenda } 
+				<DosenTable 
+					data={ dosen } 
 					nextClickHandler = { nextClickHandler }
 					prevClickHandler = { prevClickHandler }
 					loading = { loading }
 					fillAndOpenFormModal = { fillAndOpenFormModal }
 					deleteClickHandler = { deleteClickHandler }
-					fetchAgenda={ fetchAgenda } 
+					fetchDosen={ fetchDosen } 
 				/>
 			</div>
 			<Modal 
 				isOpen={ open } 
 				handleOpen={ handleOpen }  
 				handleClose={ handleClose }
-				title='Tambah Agenda'
+				title='Tambah Dosen'
 			>
-				<AgendaForm 
+				<DosenForm 
+					jabatan_fungsional = { jabatanFungsional }
 					editMode={ editMode }
 					form={ form }
 					closeModal={ handleClose }
-					fetchAgenda={ fetchAgenda } 
+					fetchDosen={ fetchDosen } 
 					handleChange={ handleChange }
 				/>
 			</Modal>

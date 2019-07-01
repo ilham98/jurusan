@@ -2,55 +2,45 @@ import React, { useState, useEffect, useRef } from 'react';
 import AdminMain from '@/components/AdminMain';
 import Modal from '@/components/Modal';
 import Button from '@/components/Button';
-import AgendaForm from '@/forms/AgendaForm';
-import AgendaTable from '@/tables/AgendaTable';
+import MataKuliahForm from '@/forms/MataKuliahForm';
+import MataKuliahTable from '@/tables/MataKuliahTable';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import generateUrl from '@/helper/generateUrl';
 import { FormGroup } from '@/components/forms';
 
-function AdminBerita() {
+function AdminMataKuliah() {
 	const formInit = {
-		nama: '',
-		tanggal: '',
-		deskripsi: ''
+		nama: ''
 	};
 
 	const [ open, setOpen ] = useState(false);
-	const [ agenda, setAgenda ] = useState({ data: [] });
+	const [ waktu, setWaktu ] = useState([]);
 	const [ page, setPage ] = useState(1);
 	const initialMount = useRef(true);
 	const [ loading, setLoading ] = useState(false);
 	const [ form, setForm ] = useState(formInit);
 	const [ editMode, setEditMode ] = useState(false);
+	const [ hari, setHari ] = useState([]);
 
 	useEffect(() => {
-		document.title = 'Admin | Agenda';
+		document.title = 'Admin | Mata Kuliah';
 	})
 
-	function fetchAgenda() {
+	function fetchMataKuliah() {
 		setLoading(true);
-		axios.get(generateUrl('agenda?page='+page))
+		axios.get(generateUrl('mata-kuliah'))
 			.then(res => {
-				setAgenda(res.data);
+				setWaktu(res.data);
 				setLoading(false);
 			});
 	}
 
 	useEffect(() => {
-		fetchAgenda();
+		fetchMataKuliah();
 	}, []);
 
-	useEffect(() => {
-		if(initialMount.current) {
-			initialMount.current = false
-		} else {
-			fetchAgenda();
-		}
-	}, [page]);
-
 	const handleOpen = () => {
-		console.log(handleOpen);
 		setEditMode(false);
 		setForm(formInit);
 		setOpen(true);
@@ -58,14 +48,6 @@ function AdminBerita() {
 
 	const handleClose = () => {
 		setOpen(false);
-	}
-
-	function nextClickHandler() {
-		setPage(p => p + 1);
-	}
-
-	function prevClickHandler() {
-		setPage(p => p - 1);
 	}
 
 	function deleteClickHandler($id) {
@@ -79,9 +61,9 @@ function AdminBerita() {
 		  confirmButtonText: 'Yes, delete it!'
 		}).then((result) => {
 		  if (result.value) {
-		  	axios.delete(generateUrl('agenda/'+$id))
+		  	axios.delete(generateUrl('mata-kuliah/'+$id))
 			.then(res => {
-				fetchAgenda();
+				fetchMataKuliah();
 				Swal.fire(
 			      'Deleted!',
 			      'Your file has been deleted.',
@@ -98,6 +80,16 @@ function AdminBerita() {
 		setForm(s => ({ ...s, [e.target.name]:e.target.value }));
 	}
 
+	const handleMulaiChange = mulai => {
+		mulai = mulai.format('HH:mm:ss')
+    	setForm(s => ({ ...s, mulai:mulai }));
+  	}
+
+  	const handleSelesaiChange = selesai => {
+  		selesai.format('HH:mm:ss')
+    	setForm(s => ({ ...s, selesai:selesai }));
+  	}
+
 	function fillAndOpenFormModal(d) {
 		setEditMode(true);
 		setForm(d);
@@ -105,37 +97,35 @@ function AdminBerita() {
 	}
 
 	return (
-		<AdminMain title='Agenda'>
+		<AdminMain title='Mata Kuliah'>
 			<FormGroup align='right'>
-				<Button onClick={ handleOpen } text='Tambah Agenda' />
+				<Button onClick={ handleOpen } text='Tambah Mata Kuliah' />
 			</FormGroup>
 			<div>
-				<AgendaTable 
-					data={ agenda } 
-					nextClickHandler = { nextClickHandler }
-					prevClickHandler = { prevClickHandler }
+				<MataKuliahTable 
+					data={ waktu } 
 					loading = { loading }
 					fillAndOpenFormModal = { fillAndOpenFormModal }
 					deleteClickHandler = { deleteClickHandler }
-					fetchAgenda={ fetchAgenda } 
 				/>
 			</div>
 			<Modal 
 				isOpen={ open } 
 				handleOpen={ handleOpen }  
 				handleClose={ handleClose }
-				title='Tambah Agenda'
+				title='Tambah Mata Kuliah'
 			>
-				<AgendaForm 
-					editMode={ editMode }
+				<MataKuliahForm 
+					fetchMataKuliah={ fetchMataKuliah }
 					form={ form }
-					closeModal={ handleClose }
-					fetchAgenda={ fetchAgenda } 
+					editMode={ editMode }
 					handleChange={ handleChange }
+					hari={ hari }
+					handleClose={ handleClose }
 				/>
 			</Modal>
 		</AdminMain>
 	);
 }
 
-export default AdminBerita;
+export default AdminMataKuliah;

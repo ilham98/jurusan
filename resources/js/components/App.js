@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
 import 'animate.css/animate.min.css';
 import './AppOutput.css';
+import 'rc-time-picker/assets/index.css';
 import './custom.css';
 import { initialState, AuthContext } from '@/contexts/auth-context';
 import '@fortawesome/fontawesome-free/css/all.min.css';

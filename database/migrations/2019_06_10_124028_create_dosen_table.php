@@ -20,7 +20,7 @@ class CreateDosenTable extends Migration
             $table->string('no_telepon');
             $table->string('keahlian');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('profile_url')->nullable();
 
             $table->primary('nidn');

@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios, { CancelToken } from 'axios';
 
-function useAxios({ url, method, body = {}}) {
+function useAxios({ url, method, body = {}, firstTimeRun = true}) {
 	const [loading, setLoading] = useState(true);
 	const [data, setData] = useState([]);
 	const [error, setError] = useState(false);
 	const source = CancelToken.source();
+	const run = useRef(firstTimeRun);
+
 	function refetch() {
 		Object.assign(body, { cancelToken: source.token });
 		let a = axios.get;
@@ -36,10 +38,14 @@ function useAxios({ url, method, body = {}}) {
 	}
 
 	useEffect(() => {
-		refetch();
-		return () => {
-				source.cancel();
-			}
+		if(run.current) {
+			refetch();
+			return () => {
+					source.cancel();
+				}
+		} else {
+			run.current = false;
+		}
 
 	}, []);
 

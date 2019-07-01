@@ -8,7 +8,7 @@ class Dosen extends Model
 {
 	protected $table = 'dosen';
 	protected $primaryKey = 'nidn';
-    protected $fillable = [ 'nidn', 'nip', 'nama', 'no_telepon', 'keahlian', 'email', 'password', 'profile_url' ];
+    protected $fillable = [ 'nidn', 'nip', 'nama', 'no_telepon', 'keahlian', 'email', 'password', 'profile_url', 'jabatan_fungsional_id' ];
     public $timestamps = false;
 	public $incrementing = false;
 

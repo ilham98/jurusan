@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Td(props) {
+function Label(props) {
 	return (
-		<td { ...props } className='p-2'>
+		<label className='text-sm block my-1'>
 			{ props.children }
-		</td>
+		</label>
 	)
 }
 
-Td.propTypes = {
+Label.propTypes = {
 	children: PropTypes.node
-};
+}
 
-export default Td;
-
+export default Label
