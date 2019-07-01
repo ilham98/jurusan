@@ -8,6 +8,7 @@ import './custom.css';
 import { initialState, AuthContext } from '@/contexts/auth-context';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Cookies from 'js-cookie';
+//mantap
 
 function App() {
 	const [ auth, setAuth ] = useState(initialState);
