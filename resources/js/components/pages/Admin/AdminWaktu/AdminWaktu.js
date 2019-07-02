@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import AdminMain from '@/components/AdminMain';
 import Modal from '@/components/Modal';
 import Button from '@/components/Button';
@@ -18,8 +18,6 @@ function AdminWaktu() {
 
 	const [ open, setOpen ] = useState(false);
 	const [ waktu, setWaktu ] = useState([]);
-	const [ page, setPage ] = useState(1);
-	const initialMount = useRef(true);
 	const [ loading, setLoading ] = useState(false);
 	const [ form, setForm ] = useState(formInit);
 	const [ editMode, setEditMode ] = useState(false);
@@ -73,7 +71,7 @@ function AdminWaktu() {
 		}).then((result) => {
 		  if (result.value) {
 		  	axios.delete(generateUrl('waktu/'+$id))
-			.then(res => {
+			.then(() => {
 				fetchWaktu();
 				Swal.fire(
 			      'Deleted!',

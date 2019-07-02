@@ -93,7 +93,7 @@ function AdminBerita() {
 		}).then((result) => {
 		  if (result.value) {
 		  	axios.delete(generateUrl('dosen/'+$id))
-			.then(res => {
+			.then(() => {
 				fetchDosen();
 				Swal.fire(
 			      'Deleted!',

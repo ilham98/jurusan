@@ -25,4 +25,8 @@ class Jadwal extends Model
     public function dosen() {
         return $this->belongsToMany('App\Dosen', 'dosen_jadwal', 'jadwal_id', 'nidn');
     }
+
+    public function ruangan() {
+        return $this->belongsTo('App\Ruangan', 'ruangan_id', 'id');
+    }
 }

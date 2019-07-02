@@ -16,6 +16,7 @@ class DosenTableSeeder extends Seeder
         DB::table('dosen')->insert([
         	'nidn' => '1000',
         	'nip' => '1000',
+            'kode_nama' => 'PD1',
         	'nama' => 'Pak Dosen 1',
         	'no_telepon' => '082254773858',
         	'keahlian' => 'Keahlian 1',
@@ -26,6 +27,7 @@ class DosenTableSeeder extends Seeder
         DB::table('dosen')->insert([
         	'nidn' => '1001',
         	'nip' => '1001',
+            'kode_nama' => 'PD2',
         	'nama' => 'Pak Dosen 2',
         	'no_telepon' => '082254773858',
         	'keahlian' => 'Keahlian 2',
@@ -36,6 +38,7 @@ class DosenTableSeeder extends Seeder
         DB::table('dosen')->insert([
         	'nidn' => '1002',
         	'nip' => '1003',
+            'kode_nama' => 'PD3',
         	'nama' => 'Pak Dosen 3',
         	'no_telepon' => '082254773858',
         	'keahlian' => 'Keahlian 3',

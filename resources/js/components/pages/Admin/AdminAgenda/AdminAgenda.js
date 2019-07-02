@@ -80,7 +80,7 @@ function AdminBerita() {
 		}).then((result) => {
 		  if (result.value) {
 		  	axios.delete(generateUrl('agenda/'+$id))
-			.then(res => {
+			.then(() => {
 				fetchAgenda();
 				Swal.fire(
 			      'Deleted!',

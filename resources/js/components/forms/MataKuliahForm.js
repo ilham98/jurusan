@@ -50,7 +50,12 @@ function MataKuliahForm(props) {
 
 MataKuliahForm.propTypes = {
 	closeModal: PropTypes.func,
-	fetchAgenda: PropTypes.func
+	fetchAgenda: PropTypes.func,
+	fetchMataKuliah: PropTypes.func,
+	handleChange: PropTypes.func,
+	handleClose: PropTypes.func,
+	form: PropTypes.object,
+	editMode: PropTypes.bool
 };
 
 export default MataKuliahForm;

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PaginationButton from '@/components/PaginationButton';
 import { Table, Thead, Tbody, Tr, Th, Td } from '@/components/table';
 import { DeleteButton, EditButton } from '@/components/buttons';
 import Loading from '@/components/Loading';

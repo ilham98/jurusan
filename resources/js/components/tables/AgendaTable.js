@@ -56,7 +56,8 @@ AgendaTable.propTypes = {
 	loading: PropTypes.bool,
 	prevClickHandler: PropTypes.func,
 	nextClickHandler: PropTypes.func,
-	deleteClickHandler: PropTypes.func
+	deleteClickHandler: PropTypes.func,
+	fillAndOpenFormModal: PropTypes.func
 }
 
 

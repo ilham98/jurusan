@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import AdminMain from '@/components/AdminMain';
 import useAxios from '@/hooks/useAxios';
 import Loading from '@/components/Loading';
@@ -11,7 +11,6 @@ import JadwalFilterFormAdmin from '@/forms/JadwalFilterFormAdmin';
 import Button from '@/components/Button';
 import axios from 'axios';
 import { BASE_API_URL } from '@/config';
-import { AuthContext } from '@/contexts/auth-context';
 import JadwalForm from '@/forms/JadwalForm';
 import Swal from 'sweetalert2';
 
@@ -33,7 +32,7 @@ function AdminDashboard() {
 	const [open, setOpen] = useState(false);
 	const [open2, setOpen2] = useState(false);
 	const [ errors, setErrors ] = useState([]);
-	const { access_token } = useContext(AuthContext);
+	const [ copyMode, setCopyMode ] = useState(false);
 
 	useEffect(() => {
 		document.title = 'Admin | Jadwal';
@@ -149,7 +148,7 @@ function AdminDashboard() {
 
 	function submitHandler(e) {
 		e.preventDefault();
-		axios.post(`${BASE_API_URL}/jadwal`, form, { headers: { Authorization: access_token } })
+		axios.post(`${BASE_API_URL}/jadwal`, form)
 			.then(() => {
 				refetch();
 				Swal.fire(
@@ -181,6 +180,7 @@ function AdminDashboard() {
 				  'success'
 				);
 			})
+		setCopyMode(false);
 	}
 
 	function openJadwalModalHandler() {
@@ -193,6 +193,18 @@ function AdminDashboard() {
 		setErrors([]);
 		setForm(f => ({ ...f, dosenIds: [] }));
 		setDosenId('');
+	}
+
+	function copyClickHandler() {
+		setCopyMode(c => !c)
+	}
+
+	function pasteClickHandler(v) {
+		setCopyMode(false);
+		axios.post(`${BASE_API_URL}/jadwal`, v)
+			.then(() => {
+				refetch();
+			})
 	}
 
 	return (
@@ -220,6 +232,10 @@ function AdminDashboard() {
 								<SelectedJadwal 
 									deleteClickHandler={ deleteClickHandler } 
 									selectedJadwal={ getSelectedJadwal() }
+									hari={ hari }
+									copyClickHandler={ copyClickHandler }
+									copyMode={ copyMode }
+									pasteClickHandler={ pasteClickHandler }
 								/> :
 								<div className='h-64 flex items-center justify-center'>Tidak ditemukan jadwal</div>
 							)

@@ -54,7 +54,7 @@ function WaktuForm(props) {
 			</FormGroup>
 			<FormGroup>
 				<Label>Mulai</Label>
-				<input type='time' name='selesai' onChange={ handleChange } value={ form.selesai } />
+				<input type='time' name='mulai' onChange={ handleChange } value={ form.mulai } />
 				<ErrorMessage>{ errors.mulai && errors.mulai[0] }</ErrorMessage>
 			</FormGroup>
 			<FormGroup>
@@ -71,7 +71,13 @@ function WaktuForm(props) {
 
 WaktuForm.propTypes = {
 	closeModal: PropTypes.func,
-	fetchAgenda: PropTypes.func
+	fetchAgenda: PropTypes.func,
+	fetchWaktu: PropTypes.func,
+	handleChange: PropTypes.func,
+	handleClose: PropTypes.func,
+	hari: PropTypes.array,
+	form: PropTypes.object,
+	editMode: PropTypes.bool
 };
 
 export default WaktuForm;
