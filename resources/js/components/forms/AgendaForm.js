@@ -64,7 +64,10 @@ function AgendaForm(props) {
 
 AgendaForm.propTypes = {
 	closeModal: PropTypes.func,
-	fetchAgenda: PropTypes.func
+	fetchAgenda: PropTypes.func,
+	form: PropTypes.object,
+	editMode: PropTypes.bool,
+	handleChange: PropTypes.func
 };
 
 export default AgendaForm;

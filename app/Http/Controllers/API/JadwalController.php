@@ -17,13 +17,22 @@ class JadwalController extends Controller {
     		'tahun' => 'required'
     	]);
 
- 		$jadwal = Jadwal::select('*', DB::raw('jadwal.id as jadwal_id'))
-                    ->with('kelas.prodi', 'mata_kuliah', 'dosen', 'waktu.hari')
+ 		$jadwal = Jadwal::select(
+                        'jadwal.id', 
+                        'hari.id as hari_id', 
+                        'waktu.mulai as mulai',
+                        'kelas_id',
+                        'mata_kuliah_id',
+                        'waktu_id',
+                        'semester',
+                        'ruangan_id'
+                    )->with('kelas.prodi', 'mata_kuliah', 'dosen', 'waktu.hari', 'ruangan')
                     ->join('waktu', 'jadwal.waktu_id', '=', 'waktu.id')
                     ->join('hari', 'waktu.hari_id', '=', 'hari.id')
-                    ->orderBy('hari.id')
-                    ->orderBy('waktu.mulai')
+                    ->orderBy('hari_id')
+                    ->orderBy('mulai')
                     ->get();
+
         $jadwal = $jadwal->groupBy([
         	function($j) {
 	        	if($j->semester == 1 || $j->semester == 2)

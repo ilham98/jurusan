@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function FormGroup(props) {
 
-	const { flex } = props;
+	// const { flex } = props;
 
 	function align() {
 		if(props.align === 'right')

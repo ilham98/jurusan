@@ -6,7 +6,7 @@ import { DeleteButton, EditButton } from '@/components/buttons';
 import Loading from '@/components/Loading';
 
 function DosenTable(props) {
-	const { data, loading, jabatan_fungsional } = props;
+	const { data, loading } = props;
 	const { prevClickHandler, nextClickHandler, fillAndOpenFormModal, deleteClickHandler } = props;
 	const { prev_page_url, next_page_url } = data;
 
@@ -57,7 +57,8 @@ DosenTable.propTypes = {
 	loading: PropTypes.bool,
 	prevClickHandler: PropTypes.func,
 	nextClickHandler: PropTypes.func,
-	deleteClickHandler: PropTypes.func
+	deleteClickHandler: PropTypes.func,
+	fillAndOpenFormModal: PropTypes.func
 }
 
 

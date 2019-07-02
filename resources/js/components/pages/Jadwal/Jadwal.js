@@ -32,6 +32,10 @@ function Jadwal() {
 				<div key={ key } className='py-3 px-10'>
 					<div className='whitespace-no-wrap text-sm text-center'>{ key }</div>
 					<div>{ waktu[key].mata_kuliah.nama }</div>
+					<div>{ waktu[key].ruangan.nama }</div>
+					<div>{ waktu[key].dosen.map(d => {
+						return <span key={ d.nidn }>{ d.kode_nama } </span>
+					}) }</div>
 				</div>
 			);
 		});
@@ -56,7 +60,7 @@ function Jadwal() {
 						<div className="font-bold text-white">
 							<div className={`text-white inline-block px-3 py-1 rounded ${ semester === 1 ?  'bg-blue-600' :  'bg-orange-500'  } mx-2 `}>{ key }</div>
 						</div>
-						<div className="block w-full sm:flex flex-wrap">{ loopHari(kelas[key], semester) }</div>
+						<div className="block w-full sm:flex flex-wrap items-start">{ loopHari(kelas[key], semester) }</div>
 					</div>
 				</div>
 			);

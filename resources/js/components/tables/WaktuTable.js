@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PaginationButton from '@/components/PaginationButton';
 import { Table, Thead, Tbody, Tr, Th, Td } from '@/components/table';
 import { DeleteButton, EditButton } from '@/components/buttons';
 import Loading from '@/components/Loading';
@@ -29,7 +28,7 @@ function WaktuTable(props) {
 								{
 									data && data.map((d, index) => (
 										<Tr key={ d.id } className={ `hover:bg-gray-400 ${index % 2 === 0 && 'bg-gray-300'}` }>
-											<Td>{ index + 1 }</Td>
+											<Td>{ index+1 }</Td>
 											<Td>{ d.hari.nama }</Td>
 											<Td>{ d.mulai }</Td>
 											<Td>{ d.selesai }</Td>

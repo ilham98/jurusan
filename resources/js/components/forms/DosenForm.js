@@ -109,7 +109,12 @@ function DosenForm(props) {
 
 DosenForm.propTypes = {
 	closeModal: PropTypes.func,
-	fetchAgenda: PropTypes.func
+	fetchDosen: PropTypes.func,
+	handleChange: PropTypes.func,
+	handleClose: PropTypes.func,
+	form: PropTypes.object,
+	editMode: PropTypes.bool,
+	jabatan_fungsional: PropTypes.array
 };
 
 export default DosenForm;

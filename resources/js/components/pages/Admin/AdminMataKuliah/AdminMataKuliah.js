@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import AdminMain from '@/components/AdminMain';
 import Modal from '@/components/Modal';
 import Button from '@/components/Button';
@@ -16,12 +16,9 @@ function AdminMataKuliah() {
 
 	const [ open, setOpen ] = useState(false);
 	const [ waktu, setWaktu ] = useState([]);
-	const [ page, setPage ] = useState(1);
-	const initialMount = useRef(true);
 	const [ loading, setLoading ] = useState(false);
 	const [ form, setForm ] = useState(formInit);
 	const [ editMode, setEditMode ] = useState(false);
-	const [ hari, setHari ] = useState([]);
 
 	useEffect(() => {
 		document.title = 'Admin | Mata Kuliah';
@@ -62,7 +59,7 @@ function AdminMataKuliah() {
 		}).then((result) => {
 		  if (result.value) {
 		  	axios.delete(generateUrl('mata-kuliah/'+$id))
-			.then(res => {
+			.then(() => {
 				fetchMataKuliah();
 				Swal.fire(
 			      'Deleted!',
@@ -79,16 +76,6 @@ function AdminMataKuliah() {
 		e.persist();
 		setForm(s => ({ ...s, [e.target.name]:e.target.value }));
 	}
-
-	const handleMulaiChange = mulai => {
-		mulai = mulai.format('HH:mm:ss')
-    	setForm(s => ({ ...s, mulai:mulai }));
-  	}
-
-  	const handleSelesaiChange = selesai => {
-  		selesai.format('HH:mm:ss')
-    	setForm(s => ({ ...s, selesai:selesai }));
-  	}
 
 	function fillAndOpenFormModal(d) {
 		setEditMode(true);
@@ -120,7 +107,6 @@ function AdminMataKuliah() {
 					form={ form }
 					editMode={ editMode }
 					handleChange={ handleChange }
-					hari={ hari }
 					handleClose={ handleClose }
 				/>
 			</Modal>
