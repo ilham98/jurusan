@@ -22,7 +22,7 @@ function Button(props) {
 			bgColorHovered = 'blue-600';
 	} 
 	return (
-		<button { ...props } className={ `bg-${ bgColor } block hover:bg-${ bgColorHovered } text-${ color } py-2 px-4 rounded ${ props.disabled && 'cursor-not-allowed' }` }>
+		<button { ...props } className={ `bg-${ bgColor } mx-2 block hover:bg-${ bgColorHovered } text-${ color } py-2 px-4 rounded ${ props.disabled && 'cursor-not-allowed' }` }>
 		  { props.text }
 		</button>
 	);

@@ -11,7 +11,6 @@
 |
 */
 
-use Carbon\Carbon;
 
 Route::get('/{path}', function () {
     return view('welcome');

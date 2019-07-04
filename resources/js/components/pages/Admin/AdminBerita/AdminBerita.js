@@ -3,33 +3,25 @@ import AdminMain from '@/components/AdminMain';
 import Modal from '@/components/Modal';
 import Button from '@/components/Button';
 import BeritaForm from '@/forms/BeritaForm';
+import generateUrl from '@/helper/generateUrl';
+import axios from 'axios';
 
 function AdminBerita() {
-	const [ open, setOpen ] = useState(false);
 
 	useEffect(() => {
 		document.title = 'Admin | Berita';
 	})
- 
-	const handleOpen = () => {
-		setOpen(true);
-	}
 
-	const handleClose = () => {
-		setOpen(false);
+	function clickHandler(body) {
+		axios.post(generateUrl('berita'), body)
+			.then()
 	}
 
 	return (
-		<AdminMain title='Dashboard'>
-			<Button onClick={ handleOpen } text='Tambah Berita' />
-			<Modal 
-				isOpen={ open } 
-				handleOpen={ handleOpen }  
-				handleClose={ handleClose }
-				title='Tambah Berita'
-			>
-				<BeritaForm closeModal={ handleClose } />
-			</Modal>
+		<AdminMain title='Berita'>
+			<BeritaForm 
+				clickHandler={ clickHandler }
+			/>
 		</AdminMain>
 	);
 }

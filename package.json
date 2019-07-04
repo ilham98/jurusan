@@ -34,13 +34,17 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.9.0",
         "animate.css": "^3.7.2",
+        "draft-convert": "^2.1.5",
         "draft-js": "^0.10.5",
+        "draftail": "^1.2.1",
         "js-cookie": "^2.2.0",
         "laravel-mix-eslint-config": "^0.1.7",
         "moment": "^2.24.0",
+        "normalize.css": "^8.0.1",
         "rc-time-picker": "^3.7.1",
         "react-router-dom": "^5.0.1",
         "react-spinners": "^0.5.4",
-        "sweetalert2": "^8.13.0"
+        "sweetalert2": "^8.13.0",
+        "xlsx": "^0.14.3"
     }
 }

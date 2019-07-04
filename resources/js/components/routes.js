@@ -9,7 +9,8 @@ import Jadwal from './pages/Jadwal/Jadwal';
 import Modul from './pages/Modul/Modul';
 
 import AdminDashboard from './pages/Admin/AdminDashboard/AdminDashboard';
-import AdminBerita from './pages/Admin/AdminBerita/AdminBerita';
+import ListBerita from './pages/Admin/AdminBerita/ListBerita/ListBerita';
+import TambahBerita from './pages/Admin/AdminBerita/TambahBerita/TambahBerita';
 import AdminJadwal from './pages/Admin/AdminJadwal/AdminJadwal';
 import AdminAgenda from './pages/Admin/AdminAgenda/AdminAgenda';
 import AdminWaktu from './pages/Admin/AdminWaktu/AdminWaktu';
@@ -29,7 +30,9 @@ function Routes() {
 			<Route path='/modul' exact component={ Modul } />
 
 			<Route path='/a/dashboard' component={ AdminDashboard } />
-			<Route path='/a/berita' component={ AdminBerita } />
+			<Route path='/a/berita' exact component={ ListBerita } />
+			<Route path='/a/berita/tambah' component={ TambahBerita } />
+
 			<Route path='/a/jadwal' component={ withAuth(AdminJadwal, 'admin') } />
 			<Route path='/a/agenda' component={ withAuth(AdminAgenda, 'admin') } />
 			<Route path='/a/waktu' component={ withAuth(AdminWaktu, 'admin') } />

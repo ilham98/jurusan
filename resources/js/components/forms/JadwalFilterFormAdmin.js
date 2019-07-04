@@ -3,6 +3,7 @@ import FormGroup from '@/components/forms/FormGroup';
 import InputSelect from '@/components/forms/InputSelect';
 import Button from '@/components/Button';
 import PropTypes from 'prop-types';
+import DownloadPDF from '@/pages/Admin/AdminJadwal/components/DownloadPDF';
 
 function AdminJadwalFilterForm(props) {
 	const { semester, tahun, form, kelas, namaKelas } = props;
@@ -37,7 +38,10 @@ function AdminJadwalFilterForm(props) {
 					</InputSelect>
 				</FormGroup>
 				<FormGroup>
-					<Button type="button" onClick={ openJadwalModalHandler } text='Tambah Jadwal' disabled={ tahun === "" || semester === "" || namaKelas === "" } />
+					<div className='flex'>
+						<Button type="button" onClick={ openJadwalModalHandler } text='Tambah Jadwal' disabled={ tahun === "" || semester === "" || namaKelas === "" } />
+						<DownloadPDF tahun={ tahun } semester={ semester } />
+					</div>
 				</FormGroup>
 			</div>
 		</form>

@@ -8,5 +8,4 @@ class Berita extends Model
 {
 	protected $table = 'berita';
     protected $fillable = [ 'judul', 'isi' ];
-    public $timestamps = false;
 }

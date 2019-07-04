@@ -29,5 +29,11 @@ class BeritaController extends Controller {
     	$body = $request->all();
     	return Berita::create($body);
     }
+
+    public function destroy($id) {
+        $berita = Berita::find($id);
+        $berita->delete();
+        return $berita;
+    }
     
 }

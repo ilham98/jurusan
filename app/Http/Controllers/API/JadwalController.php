@@ -8,6 +8,8 @@ use App\Hari;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Exports\JadwalExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class JadwalController extends Controller {
@@ -127,5 +129,10 @@ class JadwalController extends Controller {
         $jadwal->delete();
 
         return $jadwal;
+    }
+
+    public function export() 
+    {
+        return Excel::download(new JadwalExport, 'users.xlsx');
     }
 }

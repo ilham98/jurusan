@@ -35,6 +35,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('waktu', 'API\WaktuController@index');
     Route::get('mata-kuliah', 'API\MataKuliahController@index');
     Route::get('jabatan-fungsional', 'API\JabatanFungsionalController@index');
+    Route::get('jadwal/download', 'API\JadwalController@export');   
 });
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:admin'], function () {
@@ -45,6 +46,7 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:admin'], function () {
     Route::resource('mata-kuliah', 'API\MataKuliahController')->except('index');
     Route::resource('jabatan-fungsional', 'API\JabatanFungsionalController')->except('index');
     Route::resource('dosen', 'API\DosenController')->except('index');
+    Route::resource('berita', 'API\BeritaController')->except('index');
 });
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:dosen'], function () {
