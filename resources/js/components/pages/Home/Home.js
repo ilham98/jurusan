@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import BeritaTerbaru from './BeritaTerbaru';
 import Agenda from './Agenda';
 import Navbar from '@/components/Navbar';
-import '@/AppOutput.css';
 
 function Home() {
 

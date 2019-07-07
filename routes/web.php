@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('/test', function() {
+	return view('test');
+});
 
 Route::get('/{path}', function () {
     return view('welcome');

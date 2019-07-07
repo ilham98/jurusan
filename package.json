@@ -41,10 +41,12 @@
         "laravel-mix-eslint-config": "^0.1.7",
         "moment": "^2.24.0",
         "normalize.css": "^8.0.1",
+        "query-string": "^6.8.1",
         "rc-time-picker": "^3.7.1",
         "react-router-dom": "^5.0.1",
         "react-spinners": "^0.5.4",
         "sweetalert2": "^8.13.0",
+        "tailwindcss": "^1.0.3",
         "xlsx": "^0.14.3"
     }
 }

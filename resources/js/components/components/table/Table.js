@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 function Table(props) {
 	return (
-		<table className='w-full'>
-			{ props.children }
-		</table>
+		<div className='overflow-x-scroll'>
+			<table className='w-full'>
+				{ props.children }
+			</table>
+		</div>
 	)
 }
 

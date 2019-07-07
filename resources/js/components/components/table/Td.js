@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function Td(props) {
 	return (
-		<td { ...props } className='p-2'>
+		<td { ...props } className='p-2 whitespace-no-wrap'>
 			{ props.children }
 		</td>
 	)

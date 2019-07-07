@@ -2,60 +2,26 @@ import React, { useState, useEffect } from "react"
 import Button from '@/components/Button';
 import axios from 'axios';
 import generateUrl from '@/helper/generateUrl';
-import { convertToRaw, convertFromRaw } from 'draft-js';
-import { convertToHTML  } from 'draft-convert';
 import { DraftailEditor, BLOCK_TYPE, INLINE_STYLE } from "draftail";
 import { InputText, Label, FormGroup, ErrorMessage } from '@/components/forms';
 import { withRouter } from 'react-router-dom';
+import { toHTML, fromHTML } from '@/helper/textEditorConverter';
+import PropTypes from 'prop-types';
 import Swal from 'sweetalert2';
 
-function TextEditor(props) {
+function BeritaForm(props) {
+
+	const { editMode, berita } = props;
 
 	const init = {
-		judul: ''
+		judul: '',
+		isi: ''
 	}
 
-	const { clickHandler } = props;
+	const defaultContent = editMode ? fromHTML(berita.isi) : JSON.parse(sessionStorage.getItem("draftail:content"));
 	const [ form, setForm ] = useState(init);
 	const [ errors, setErrors ] = useState({});
-	const [ content, setContent ] = useState(JSON.parse(sessionStorage.getItem("draftail:content")));
-	
-	const exporterConfig = {
-	  blockToHTML: (block) => {
-	    if (block.type === BLOCK_TYPE.BLOCKQUOTE) {
-	      return <blockquote />
-	    }
-
-	    // Discard atomic blocks, as they get converted based on their entity.
-	    if (block.type === BLOCK_TYPE.ATOMIC) {
-	      return {
-	        start: "",
-	        end: "",
-	      }
-	    }
-
-	    return null
-	  },
-
-	  entityToHTML: (entity, originalText) => {
-	    if (entity.type === ENTITY_TYPE.LINK) {
-	      return <a href={entity.data.url}>{originalText}</a>
-	    }
-
-	    if (entity.type === ENTITY_TYPE.IMAGE) {
-	      return <img src={entity.data.src} alt={entity.data.alt} />
-	    }
-
-	    if (entity.type === ENTITY_TYPE.HORIZONTAL_RULE) {
-	      return <hr />
-	    }
-
-	    return originalText
-	  },
-	}
-
-
-	const toHTML = (raw) => raw ? convertToHTML(exporterConfig)(convertFromRaw(raw)) : ""
+	const [ content, setContent ] = useState(defaultContent);
 
 	function changeHandler(e) {
 		e.persist();
@@ -67,12 +33,20 @@ function TextEditor(props) {
 		sessionStorage.setItem("draftail:content", JSON.stringify(c))
 	}
 
+	useEffect(() => {
+		if(editMode === true) {
+			setForm(berita);
+			sessionStorage.setItem("draftail:content", JSON.stringify(fromHTML(berita.isi)));
+		}
+	}, []);
+
 	function submitHandler(e) {
 		e.preventDefault();
 		const isi = toHTML(content);
 		const f = { ...form, isi };
-		axios.post(generateUrl('berita'), f)
-			.then(res => {
+		console.log(f);
+		const ax = editMode ? axios.put(generateUrl('berita/'+berita.id), f) : axios.post(generateUrl('berita'), f);
+			ax.then(() => {
 				Swal.fire(
 				  'Berhasil!',
 				  'Data berhasil diinput!',
@@ -119,4 +93,10 @@ function TextEditor(props) {
 	)
 }
 
-export default withRouter(TextEditor);
+BeritaForm.propTypes = {
+	editMode: PropTypes.bool,
+	berita: PropTypes.object,
+	history: PropTypes.object
+}
+
+export default withRouter(BeritaForm);

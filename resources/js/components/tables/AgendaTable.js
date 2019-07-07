@@ -11,7 +11,7 @@ function AgendaTable(props) {
 	const { prev_page_url, next_page_url } = data;
 
 	return (
-		<div className='border mt-3 bg-white overflow-auto max-w-xs sm:max-w-full'>
+		<div className='border mt-3 bg-white'>
 			<div className='p-3 flex justify-end'>
 				<PaginationButton disabled={ loading || !prev_page_url } type='left' onClick={ prevClickHandler } />
 				<PaginationButton disabled={ loading || !next_page_url } type='right' onClick = { nextClickHandler } />

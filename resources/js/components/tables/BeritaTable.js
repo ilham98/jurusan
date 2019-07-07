@@ -69,7 +69,7 @@ function BeritaTable(props) {
 											<Td>{ d.judul }</Td>
 											<Td>{ convertDate(d.created_at) }</Td>
 											<Td>
-												<Link to={ '/a/berita/'+d.id }>
+												<Link to={ '/a/berita/'+d.id+'/edit' }>
 													<EditButton />
 												</Link>
 												<DeleteButton onClick={ () => deleteClickHandler(d.id) } />
@@ -91,7 +91,8 @@ BeritaTable.propTypes = {
 	prevClickHandler: PropTypes.func,
 	nextClickHandler: PropTypes.func,
 	deleteClickHandler: PropTypes.func,
-	fillAndOpenFormModal: PropTypes.func
+	fillAndOpenFormModal: PropTypes.func,
+	fetchBerita: PropTypes.func
 }
 
 

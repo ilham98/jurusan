@@ -30,6 +30,22 @@ class BeritaController extends Controller {
     	return Berita::create($body);
     }
 
+    public function update(Request $request, $id) {
+        $berita = Berita::findOrFail($id);
+        $this->validate($request, [
+            'judul' => 'required',
+            'isi' => 'required'
+        ]);
+        $body = $request->all();
+        $berita->update($body);
+        return $berita;
+    }
+
+
+    public function show($id) {
+        return Berita::findOrFail($id);
+    }
+
     public function destroy($id) {
         $berita = Berita::find($id);
         $berita->delete();

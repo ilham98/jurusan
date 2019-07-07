@@ -42,7 +42,7 @@ function AdminMain(props) {
 					<Item name='Agenda' to='/a/agenda' icon='fas fa-calendar' />
 					<Item name='Mata Kuliah' to='/a/mata-kuliah' icon='fas fa-book' />
 					<Item name='Dosen' to='/a/dosen' icon='fas fa-users' />
-					<Item name='Visi & Misi' to='/a/visi-misi' icon='fas fa-calendar' />
+					<Item name='Profil Jurusan' to='/a/profil' icon='fas fa-calendar' />
 					<div className='flex justify-center mt-5'>
 						<button onClick={ () => signout() } className='border rounded border-orange-500 text-orange-600 px-2 py-1'>
 							Logout <i className='fas fa-sign-out-alt' />
@@ -54,7 +54,7 @@ function AdminMain(props) {
 				<div><button><i className='p-3 fas fa-bars' onClick={ toggle } /></button></div>
 				<div className='bg-gray-300 shadow'>
 					<div className='text-2xl px-5 py-3 bg-blue-400 text-white'>{ props.title }</div>
-					<div className='bg-gray-100 p-2 md:px-10 md:py-10' style={{ height: 'calc(100vh - 100px)', overflowY: 'scroll' }}>
+					<div className='bg-gray-100 px-2 pb-10 md:px-10 md:py-10' style={{ height: 'calc(100vh - 100px)', overflowY: 'scroll', 'paddingBottom': 25 }}>
 						{ props.children }
 					</div>
 				</div>

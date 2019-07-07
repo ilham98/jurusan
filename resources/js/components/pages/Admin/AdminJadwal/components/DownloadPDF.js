@@ -1,13 +1,12 @@
-import React, { useState, Fragment } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import Button from '@/components/Button';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import generateUrl from '@/helper/generateUrl';
 import XLSX from 'xlsx';
 
-function DownloadPDF(props) {
-	const { tahun, semester } = props;
+function DownloadPDF() {
+	// const { tahun, semester } = props;
 
 	function clickHandler() {
 		axios.get(generateUrl('waktu'))

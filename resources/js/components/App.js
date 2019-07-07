@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
-// import "normalize.css";
-import 'animate.css/animate.min.css';
-import './AppOutput.css';
-import 'rc-time-picker/assets/index.css';
-import './custom.css';
+// import './AppOutput.css';
 import { initialState, AuthContext } from '@/contexts/auth-context';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import Cookies from 'js-cookie';
 
 //mantap

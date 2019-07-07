@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss')
 // const myPlugin = require('@babel/plugin-proposal-export-default-from');
 
 /*
@@ -34,5 +35,9 @@ mix.webpackConfig({
 });
 
 mix.react('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+   .sass('resources/sass/app.scss', 'public/css')
+    .options({
+      processCssUrls: false,
+      postCss: [ tailwindcss('resources/js/tailwind.config.js') ],
+    });
 

@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import generateUrl from '@/helper/generateUrl';
+import moment from 'moment';
 
 function AgendaItem({ judul, tanggal }) {
     return (
@@ -16,11 +19,41 @@ AgendaItem.propTypes = {
 }
 
 function Agenda() {
+    const [ loading, setLoading ] = useState(true);
+    const [ agenda, setAgenda ] = useState([]);
+
+     function convertDate(t) {
+        return moment(t).locale('id').format("Do MMMM YYYY"); 
+    }
+
+    function fetchAgenda() {
+        axios.get(generateUrl('agenda?paginate=3'))
+            .then(res => {
+                setAgenda(res.data.data);
+                setLoading(false);
+            });
+    }
+
+    useEffect(() => {
+        fetchAgenda()
+    }, []);
+
     return (
         <div className="md:flex-4 lg:flex-3 py-10 px-10 agenda text-center">
             <div className="text-2xl my-3 mx-5 px-8 py-3 font-open bg-gray-200 border-blue-500 border-t-4  shadow">Agenda</div>
             <div className="mt-3 bg-white shadow text-white mx-5">
-                <AgendaItem judul='Upacara Bendera' tanggal='20-05-2015' />
+                {
+
+                    !loading && (
+                        <Fragment>
+                            {
+                                agenda.map(a => (
+                                    <AgendaItem key={ a.id } judul={ a.nama } tanggal={ convertDate(a.tanggal) } /> 
+                                ))
+                            }
+                        </Fragment>
+                    )
+                }
             </div>
         </div>
     );

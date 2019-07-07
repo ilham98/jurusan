@@ -12,16 +12,9 @@ function AdminBerita() {
 		document.title = 'Admin | Berita';
 	})
 
-	function clickHandler(body) {
-		axios.post(generateUrl('berita'), body)
-			.then()
-	}
-
 	return (
 		<AdminMain title='Berita'>
-			<BeritaForm 
-				clickHandler={ clickHandler }
-			/>
+			<BeritaForm />
 		</AdminMain>
 	);
 }

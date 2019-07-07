@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import AdminMain from '@/components/AdminMain';
-import Modal from '@/components/Modal';
 import Button from '@/components/Button';
 import FormGroup from '@/components/forms/FormGroup';
 import BeritaTable from '@/tables/BeritaTable';
@@ -38,6 +37,7 @@ function AdminBerita() {
 	useEffect(() => {
 		document.title = 'Admin | Berita';
 		fetchBerita();
+		sessionStorage.setItem("draftail:content", null);
 	}, [])
 
 	return (

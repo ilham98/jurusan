@@ -1,6 +1,6 @@
 import { Link, withRouter } from 'react-router-dom';
 import Logo from '../assets/img/logo.webp';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 let Item = ({ location, path, text, handleClose }) => {
@@ -22,27 +22,10 @@ Item.propTypes = {
 Item = withRouter(Item);
 
 function Navbar() {
-  const [ color, setColor ] = useState('white');
   const [ open, setOpen ] = useState(false);
 
-  const handleScroll = () => {
-    if(window.scrollY > 100) {
-      setColor('gray-100');
-    } else {
-      setColor('white');
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    }
-  });
-
   return (
-    <nav style={{ transition: 'background-color 0.5s' }} className={ `z-50 font-open fixed shadow-md select-none h-20 bg-${ color } top-0 justify-between lg:flex lg:px-20 lg:items-stretch w-full` }>
+    <nav style={{ transition: 'background-color 0.5s' }} className={ `z-50 font-open fixed shadow-md select-none h-20 bg-white top-0 justify-between lg:flex lg:px-20 lg:items-stretch w-full` }>
       <div className='flex flex-no-shrink items-stretch p-3'>  
         <img alt='logo' src={ Logo } className='flex-no-grow flex-no-shrink relative h-12 leading-normal flex items-center' />
         <Link to='/' className='flex-no-grow flex-no-shrink relative ml-3 font-bold leading-normal text-gray-900 no-underline flex items-center hover:bg-grey-dark'>Teknologi <br className='block md:hidden' /> Informasi</Link>
@@ -53,6 +36,7 @@ function Navbar() {
       <div className={ `justify-end lg:flex ${open ? 'block' : 'hidden'} p-5 justify-end absolute lg:static top-0 left-0 w-full lg:w-auto bg-white h-screen lg:h-auto` }>
         <div className='flex justify-end w-full block lg:hidden'><button className='p-2' onClick={ () => setOpen(false) }><i className='fas fa-times'/></button></div>
         <Item path='/' text='Beranda' />
+        <Item path='/berita' text='Berita' />
         <Item path='/jadwal' text='Jadwal' />
         <Item path='/modul' text='Modul' />
         <Item path='/login' text='Login' />

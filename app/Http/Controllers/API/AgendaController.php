@@ -13,9 +13,10 @@ class AgendaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Agenda::orderBy('id', 'desc')->paginate(30);
+        $paginate = $request->paginate ? $request->paginate : 30;
+        return Agenda::orderBy('id', 'desc')->paginate($paginate);
     }
 
     /**

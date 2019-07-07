@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import Button from '@/components/Button';
-import axios from 'axios'
+import axios from 'axios';
 import { InputText, InputSelect, FormGroup, ErrorMessage, Label } from '@/components/forms';
 import Swal from 'sweetalert2';
 import PropTypes from 'prop-types';
