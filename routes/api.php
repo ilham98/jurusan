@@ -27,7 +27,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('ruangan', 'API\RuanganController@index');
     Route::get('dosen', 'API\DosenController@index');
     Route::get('prodi', 'API\ProdiController@index');
-    Route::get('berita', 'API\BeritaController@index');
+    Route::resource('berita', 'API\BeritaController')->only('index', 'show');
     Route::get('modul', 'API\ModulController@index');
     Route::get('dosen/{nidn}/modul', 'API\DosenModulController@index');
     Route::get('dosen/{nidn}/jadwal', 'API\DosenJadwalController@index');
@@ -47,7 +47,7 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:admin'], function () {
     Route::resource('mata-kuliah', 'API\MataKuliahController')->except('index');
     Route::resource('jabatan-fungsional', 'API\JabatanFungsionalController')->except('index');
     Route::resource('dosen', 'API\DosenController')->except('index');
-    Route::resource('berita', 'API\BeritaController')->except('index');
+    Route::resource('berita', 'API\BeritaController')->except('index', 'show');
     Route::put('profil', 'API\ProfilController@update'); 
 });
 
