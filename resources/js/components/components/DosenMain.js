@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '@/contexts/auth-context';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -15,27 +15,41 @@ Item.propTypes = {
 	to: PropTypes.string,
 	location: PropTypes.object,
 	icon: PropTypes.string
-}
+};
 
 Item = withRouter(Item);
 
 function DosenMain(props) {
+
+	const [open, setOpen] = useState(false);
+
+	function toggle() {
+		setOpen(o => !o);
+	}
+
 	const { signout } = useContext(AuthContext);
 	return (
 		<div className='flex'>
-			<div className='bg-white h-screen'>
+			<div className={ `bg-white shadow-lg ${ !open && 'hidden' } h-screen ${ !open ? 'md:block' : 'md:hidden' } fixed md:static flex-1 w-full`} style={{ minWidth: 250 }}>
 				<div className='my-5 mx-10'>
-					Welcome Dosen
+					Welcome Admin
 				</div>
 				<div className='flex flex-col'>
-					<Item name='Modul' to='/t/modul' icon='fas fa-calendar' />
-					<button onClick={ () => signout() }>Logout</button>
+					<Item name='Modul' to='/t/modul' icon='fas fa-book' />
+					<div className='flex justify-center mt-5'>
+						<button onClick={ () => signout() } className='border rounded border-orange-500 text-orange-600 px-2 py-1'>
+							Logout <i className='fas fa-sign-out-alt' />
+						</button>
+					</div>
 				</div>
 			</div>
-			<div className='flex-1 p-5 bg-gray-300 shadow-lg agenda shadow-lg'>
-				<div className='text-2xl p-10 bg-blue-500 text-white'>{ props.title }</div>
-				<div className='bg-white px-10 py-10' style={{ maxHeight: '75vh', overflowY: 'scroll' }}>
-					{ props.children }
+			<div className='flex-4'>
+				<div><button><i className='p-3 fas fa-bars' onClick={ toggle } /></button></div>
+				<div className='bg-gray-300 shadow'>
+					<div className='text-2xl px-5 py-3 bg-blue-400 text-white'>{ props.title }</div>
+					<div className='bg-gray-100 px-2 pb-10 md:px-10 md:py-10' style={{ height: 'calc(100vh - 100px)', overflowY: 'scroll', 'paddingBottom': 25 }}>
+						{ props.children }
+					</div>
 				</div>
 			</div>
 		</div>
@@ -44,7 +58,7 @@ function DosenMain(props) {
 
 DosenMain.propTypes = {
 	title: PropTypes.string,
-	children: PropTypes.array
+	children: PropTypes.node.isRequired
 }
 
 export default DosenMain;

@@ -15,6 +15,8 @@ Route::get('/test', function() {
 	return view('test');
 });
 
+Route::get('/generate/sk-pengajaran', 'Export\SkPengajaran@generate');
+
 Route::get('/{path}', function () {
     return view('welcome');
 })->where( 'path', '([A-z\d\-/_.]+)?' );

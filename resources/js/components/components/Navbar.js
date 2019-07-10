@@ -36,6 +36,7 @@ function Navbar() {
       <div className={ `justify-end lg:flex ${open ? 'block' : 'hidden'} p-5 justify-end absolute lg:static top-0 left-0 w-full lg:w-auto bg-white h-screen lg:h-auto` }>
         <div className='flex justify-end w-full block lg:hidden'><button className='p-2' onClick={ () => setOpen(false) }><i className='fas fa-times'/></button></div>
         <Item path='/' text='Beranda' />
+        <Item path='/profil' text='Profil Jurusan' />
         <Item path='/berita' text='Berita' />
         <Item path='/jadwal' text='Jadwal' />
         <Item path='/modul' text='Modul' />

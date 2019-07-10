@@ -50,7 +50,7 @@ function Berita(props) {
     return (
         <div>
             <Navbar />
-        	<div className="md:flex-8 mt-20 lg:flex-9 px-8 py-10 lg:px-8 xl:px-24 xl:py-10 bg-gray-200">
+        	<div className="md:flex-8 mt-20 lg:flex-9 px-8 py-1 lg:px-8 xl:px-64 xl:py-10 bg-gray-200">
         		<div className="text-2xl my-3 font-open">Berita</div>
                 {
                     loading ? ( 

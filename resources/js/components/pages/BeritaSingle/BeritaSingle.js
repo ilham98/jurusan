@@ -38,8 +38,8 @@ function BeritaSingle(props) {
 					loading ? (
 						<Loading />
 					) : (
-						<div className='py-10 px-10 sm:px-32 lg:px-64 w-full'>
-							<div className="px-10 shadow bg-white  py-10 sm:py-10 sm:px-20">
+						<div className='py-2 px-2 sm:py-10 sm:px-32 lg:px-64 w-full'>
+							<div className="px-5 shadow bg-white  py-5 sm:py-10 sm:px-20">
 								<div className="flex flex-col-reverse xl:flex-row justify-between items-start">
 									<div className="flex-initial my-2 mx-3 text-gray-900 text-xl font-open">
 										{ berita.judul }

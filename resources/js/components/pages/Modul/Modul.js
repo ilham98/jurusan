@@ -51,21 +51,17 @@ function Modul() {
 	}, []);
 
 	useEffect(() => {
-		if(initialMount.current) {
-			initialMount.current = false;
-		} else {
-			setPage(1);
-			fetchModul();
-		}
-	}, [filter])
-
-	useEffect(() => {
 		if(initialMount2.current) {
 			initialMount2.current = false;
 		} else {
 			fetchModul();
 		}
 	}, [page])
+
+	function clickHandler() {
+		setPage(1);
+		fetchModul();
+	}
 
 	function changeHandler(e) {
 		e.persist();
@@ -76,7 +72,7 @@ function Modul() {
     	<div>
 			<Navbar />
 			<div className='mt-24 px-5 md:px-64'>
-				<div className='flex flex-wrap'>
+				<div className='sm:flex flex-wrap'>
 					<FormGroup>
 						<InputSelect name='mata_kuliah_id' onChange={ changeHandler } >
 							<option value=''>Seluruh Mata Kuliah</option>
@@ -88,10 +84,12 @@ function Modul() {
 						</InputSelect>
 					</FormGroup>
 					<FormGroup>
-					<InputText name='judul' onChange={ changeHandler } />
+						<InputText name='judul' onChange={ changeHandler } />
 					</FormGroup>
 					<FormGroup>
-					{
+						<Button text='Filter' onClick={ clickHandler }/>
+					</FormGroup>
+					<FormGroup>
 						<div>
 							{
 								modul.prev_page_url && <Button disabled={ loading } onClick={ () => setPage(p => p-1) } text='Prev' />
@@ -101,8 +99,8 @@ function Modul() {
 							}
 							
 						</div>
-					}
 					</FormGroup>
+
 				</div>
 			</div>
 			<div className="sm:flex px-5 md:px-20 flex-wrap justify-center mt-5"> 

@@ -8,6 +8,7 @@ import Berita from './pages/Berita/Berita';
 import BeritaSingle from './pages/BeritaSingle/BeritaSingle';
 import Jadwal from './pages/Jadwal/Jadwal';
 import Modul from './pages/Modul/Modul';
+import Profil from './pages/Profil/Profil';
 
 import AdminDashboard from './pages/Admin/AdminDashboard/AdminDashboard';
 import ListBerita from './pages/Admin/AdminBerita/ListBerita/ListBerita';
@@ -33,6 +34,7 @@ function Routes() {
 			<Route path='/berita/:id' exact component={ BeritaSingle } />
 			<Route path='/jadwal' exact component={ Jadwal } />
 			<Route path='/modul' exact component={ Modul } />
+			<Route path='/profil' exact component={ Profil } />
 
 			<Route path='/a/dashboard' component={ AdminDashboard } />
 			<Route path='/a/berita' exact component={ ListBerita } />
@@ -47,7 +49,7 @@ function Routes() {
 			<Route path='/a/dosen' component={ withAuth(AdminDosen, 'admin') } />
 			<Route path='/a/profil' exact component={ withAuth(AdminProfil, 'admin') } />
 			<Route path='/a/profil/edit' component={ withAuth(AdminEditProfil, 'admin') } />
-			<Route path='/t/modul' component={ withAuth(DosenModul, 'dosen') } />
+			<Route path='/t/modul' exact component={ withAuth(DosenModul, 'dosen') } />
 		</Switch>
 	);
 };

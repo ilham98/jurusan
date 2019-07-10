@@ -30,11 +30,10 @@ class LoginController extends Controller {
             $user = Dosen::where([
                 'nidn' => $request->nidn
             ])->first();
-
             if($user) {
                 $role = 'dosen';
             } else {
-                return response()->json(['error' => 'Unauthorized'], 401);
+                return response()->json(['error' => 'Unauthorized'], 500);
             }
         }
 
